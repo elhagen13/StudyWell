@@ -19,7 +19,7 @@ mongoose
       "/" +
       process.env.MONGO_DB +
       "?retryWrites=true&w=majority",
-    {
+     {
       useNewUrlParser: true, //useFindAndModify: false,
       useUnifiedTopology: true,
     }
