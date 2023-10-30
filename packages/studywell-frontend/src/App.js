@@ -1,25 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {useState} from "react";
+import TaskBar from './TaskBar';
+import Task from './Task'
+
 
 function App() {
+  
+  const [tasks, setTasks] = useState([]);
+
+  function removeTask(index){
+    const updated = tasks.filter((task, i) => {
+      return i !== index
+    });
+    setTasks(updated);
+  }
+
+  function updateList(task) {
+    console.log(task);
+    setTasks([...tasks, task]);
+    console.log(tasks)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <TaskBar tasksData = {tasks}
+       removeTask={removeTask}/>
+      <Task handleSubmit = {updateList}/>
     </div>
   );
 }
 
 export default App;
+
