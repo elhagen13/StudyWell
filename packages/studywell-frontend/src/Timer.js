@@ -30,11 +30,15 @@ function Timer(props) {
   function startTimer() {
     setTimerOn(true);
   };
+  function pauseTimer(){
+    setTimerOn(false);
+  }
   return (
     <div className="container">
         <div className="timer-container">
       <h1>{minutes<10? "0"+minutes: minutes}:{seconds<10? "0"+seconds: seconds}</h1>
-      <button onClick={startTimer}>Start Timer</button>
+      <button onClick={startTimer}>Start</button>
+      <button onClick={pauseTimer}>Pause</button>
     </div>
     </div>
   );
