@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import './Timer.css';
 import React, { useState, useEffect } from 'react';
 
 function App() {
@@ -10,8 +11,8 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <button onClick={toggleStartPause}>
+    <div className="center">
+      <button className={`${started ? 'button-red' : 'button'}`} onClick={toggleStartPause}>
         {started ? "Pause" : "Start"}
       </button>
     </div>
