@@ -1,23 +1,16 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 import './Timer.css';
 import React, { useState, useEffect } from 'react';
+import Timer from './Timer';
+import StartButton from './StartButton';
 
 function App() {
-  const [started, setStarted] = useState(false);
-
-  function toggleStartPause() {
-    setStarted(!started);
-  }
-
   return (
-    <div className="center">
-      <button 
-        className={`${started ? 'button-red' : 'button'}`} 
-        onClick={toggleStartPause}>
-          {started ? "Pause" : "Start"}
-      </button>
-    </div>
+
+      <div className="container">
+        <Timer time = {25}/>
+      </div>
   );
 }
 
