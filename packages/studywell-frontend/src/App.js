@@ -12,8 +12,10 @@ function App() {
 
   return (
     <div className="center">
-      <button className={`${started ? 'button-red' : 'button'}`} onClick={toggleStartPause}>
-        {started ? "Pause" : "Start"}
+      <button 
+        className={`${started ? 'button-red' : 'button'}`} 
+        onClick={toggleStartPause}>
+          {started ? "Pause" : "Start"}
       </button>
     </div>
   );
