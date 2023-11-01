@@ -32,3 +32,15 @@ app.post('/tasks', (req,res) => {
             res.status(500).send(error);
         });
 });
+
+app.delete('/tasks', (req, res) => {
+    const id = req.params['id'];
+    const result = taskModel.findTaskID(id);
+    let removed = tasks['task_list'].splice(result, 1);
+    if (result === undefined) {
+        res.status(404).send('Resource not found.');
+    }
+    else {
+        res.status(204).send("User Deleted.");
+    }
+});

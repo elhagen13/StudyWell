@@ -4,7 +4,7 @@ import taskModel from "./task.js";
 
 // const dotenv = require('dotenv');
  dotenv.config();
-
+let count = 0;
 
 
 mongoose.set("debug", true);
@@ -43,11 +43,12 @@ mongoose
     return promise;
   }
 
-  function findtaskNum(name) {
-    return userModel.find({ name: name });
+  function findTaskID(id) {
+    return taskModel.find({ id: id });
   }
 
   export default {
     getTasks,
     addTasks,
+    findTaskID,
   };

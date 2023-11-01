@@ -6,12 +6,8 @@ const TaskSchema = new mongoose.Schema(
       type: String,
       required: true,
       trim: true,
-    },
-    ID: {
-      type: Number,
-      required: true,
-      trim: true,
-    },
+     },
+    
   },
   { collection: "task_list" }
 );
