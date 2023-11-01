@@ -1,9 +1,8 @@
 import './App.css';
+import './Timer.css';
+import React, { useState, useEffect } from 'react';
 import Timer from './Timer';
-import React, {useState} from "react";
-import TaskBar from './TaskBar';
-import Task from './Task'
-
+import StartButton from './StartButton';
 
 function App() {
   

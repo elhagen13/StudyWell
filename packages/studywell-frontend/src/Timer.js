@@ -1,4 +1,5 @@
 import React, {useEffect, useState, useRef} from "react";
+import StartButton from "./StartButton";
 
 function Timer(props) {
   const [minutes, setMinutes] = useState(props.time);
@@ -33,12 +34,16 @@ function Timer(props) {
   function pauseTimer(){
     setTimerOn(false);
   }
+
   return (
     <div className="container">
         <div className="timer-container">
       <h1>{minutes<10? "0"+minutes: minutes}:{seconds<10? "0"+seconds: seconds}</h1>
-      <button onClick={startTimer}>Start</button>
-      <button onClick={pauseTimer}>Pause</button>
+        <StartButton
+          timerOn={timerOn}
+          startTimer={startTimer}
+          pauseTimer={pauseTimer}
+        />
     </div>
     </div>
   );
