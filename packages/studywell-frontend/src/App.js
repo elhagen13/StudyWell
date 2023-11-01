@@ -1,4 +1,5 @@
 import './App.css';
+import Timer from './Timer';
 import React, {useState} from "react";
 import TaskBar from './TaskBar';
 import Task from './Task'
@@ -22,10 +23,15 @@ function App() {
   }
 
   return (
-    <div className="container">
-      <TaskBar tasksData = {tasks}
-       removeTask={removeTask}/>
-      <Task handleSubmit = {updateList}/>
+    <div className = "App">
+      <div className="container">
+        <Timer time = {25}/>
+      </div>
+      <div className="task_bar">
+        <TaskBar tasksData = {tasks}
+        removeTask={removeTask}/>
+        <Task handleSubmit = {updateList}/>
+      </div>
     </div>
   );
 }

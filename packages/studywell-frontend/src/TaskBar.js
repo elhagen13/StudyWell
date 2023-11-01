@@ -16,7 +16,7 @@ function TaskBarBody(props) {
           <tr key={index}>
             <td>{row.task}</td>
             <td>
-                <button onClick={() => 
+                <button class="delete_button" onClick={() => 
                         props.removeTask(index)}>
                         Delete
                 </button>

@@ -30,6 +30,7 @@ function Task(props) {
         onChange={handleChange} />
       <input
         type = "button"
+        class = "submit_task"
         value = "Submit"
         onClick = {submitTask}/>
       </form>
