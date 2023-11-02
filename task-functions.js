@@ -46,9 +46,12 @@ mongoose
   function findTaskID(id) {
     return taskModel.find({ id: id });
   }
-
+  function deleteUser(id) {
+    return taskModel.findByIdAndDelete(id);
+  }
   export default {
     getTasks,
     addTasks,
     findTaskID,
+    deleteUser,
   };
