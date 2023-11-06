@@ -14,6 +14,12 @@ function TaskBarBody(props) {
     const rows = props.tasksData.map((row, index) => {
         return (
           <tr key={index}>
+            <td> 
+                <div>
+                    <input type="checkbox"/>
+                    <span class="checkmark"></span>
+                </div>
+            </td>
             <td>{row.task}</td>
             <td>
                 <button class="delete_button" onClick={() => 
@@ -27,9 +33,8 @@ function TaskBarBody(props) {
       );
       return (
           <tbody>
-            
             {rows}
-           </tbody>
+          </tbody>
        );
 }
 
