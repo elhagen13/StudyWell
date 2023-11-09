@@ -1,9 +1,9 @@
-import './App.css';
-import './Timer.css';
+import '../App.css';
+import '../components/timer/Timer.css';
 import React, { useState, useEffect } from 'react';
-import Task from './Task'
-import TaskBar from './TaskBar'
-import Timer from './Timer';
+import Task from '../components/taskbar/Task'
+import TaskBar from '../components/taskbar/TaskBar'
+import Timer from '../components/timer/Timer';
 
 
 function MainScreen() {

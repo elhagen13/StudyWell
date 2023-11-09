@@ -1,6 +1,6 @@
 import React, {useEffect, useState, useRef} from "react";
 import StartButton from "./StartButton";
-import bluemingsound from "./blueming-alarm.mp3"; // Update the path to your alarm sound file
+import bluemingsound from "../../sounds/blueming-alarm.mp3"; // Update the path to your alarm sound file
 
 
 function Timer(props) {
