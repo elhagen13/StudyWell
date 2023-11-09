@@ -1,6 +1,8 @@
 import React, {useEffect, useState, useRef} from "react";
 import StartButton from "./StartButton";
 import bluemingsound from "./blueming-alarm.mp3"; // Update the path to your alarm sound file
+import { useNavigate } from "react-router-dom"; // Import useNavigate
+
 
 
 function Timer(props) {
@@ -9,6 +11,9 @@ function Timer(props) {
   const [timerOn, setTimerOn] = useState(false);
   const [timerDone, setTimerDone] = useState(false);
   const timerRef = useRef(null);
+  const navigate = useNavigate(); 
+
+
   var audio = new Audio(bluemingsound);
 
   useEffect(()=>{
@@ -44,10 +49,12 @@ function Timer(props) {
 
   function endTimer(){
     setTimerDone(true);
-    
+    audio.play();
+    navigate("/short");
 
- 
+
   }
+
   return (
     <div className="container">
 
