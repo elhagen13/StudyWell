@@ -26,7 +26,7 @@ function MainScreen() {
   return (
     <div id = "MainScreen">
         <div className="container">
-            <Timer time = {25}/>
+            <Timer time = {1}/>
         </div>
         <div className="task_bar">
             <TaskBar tasksData = {tasks}
