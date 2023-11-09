@@ -1,7 +1,7 @@
-import './App.css';
-import './Timer.css';
+import '../App.css';
+import '../components/timer/Timer.css';
 import './Page.css'
-import Timer from './Timer';
+import Timer from '../components/timer/Timer';
  
 function ShortBreak() {
 
