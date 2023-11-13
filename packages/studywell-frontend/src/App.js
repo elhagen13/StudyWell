@@ -23,14 +23,14 @@ function App() {
   //   console.log(tasks)
   // }
   function postUser(task) {
-    const promise = fetch("http://localhost:8000/tasks", {
+    const promise = fetch("Http://localhost:8000/tasks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(task),
     });
-
+    console.log(promise);
     return promise;
   }
 

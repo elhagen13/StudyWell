@@ -28,10 +28,12 @@ app.get("/tasks", (req, res) => {
 
 app.post("/tasks", (req, res) => {
   const taskToAdd = req.body;
+ // console.log(taskToAdd)
   taskToAdd.id = generateID();
+  console
   taskModel
     .addTasks(taskToAdd)
-    .then((result) => {
+    .then((res) => {
       res.status(201).send(taskToAdd);
     })
     .catch((error) => {
