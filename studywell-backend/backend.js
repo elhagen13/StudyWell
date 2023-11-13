@@ -34,7 +34,7 @@ app.post('/tasks', (req,res) => {
     const taskToAdd = req.body;
     taskToAdd.id = generateID();
     taskModel.addTasks(taskToAdd)
-        .then((result) => {
+        .then((res) => {
             res.status(201).send(taskToAdd);
         })
         .catch((error) => {
