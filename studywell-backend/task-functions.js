@@ -31,14 +31,14 @@ function getTasks(description) {
   if (description === undefined) {
     promise = taskModel.find();
   }
-  console.log(promise);
+  // console.log(promise);
   return promise;
 }
 
 function addTasks(task) {
   const taskToAdd = new taskModel(task);
   const promise = taskToAdd.save();
-  console.log(promise);
+  //console.log(promise);
   return promise;
 }
 
