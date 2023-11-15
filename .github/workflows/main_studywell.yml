@@ -24,8 +24,8 @@ jobs:
       - name: npm install, build, and test
         run: |
           npm install --workspaces=false
-          npm run -w studywell-backend build --if-present
-          npm run -w studywell-backend test --if-present
+          npm run -w studywell build --if-present
+          npm run -w studywell test --if-present
         working-directory: studywell-backend
 
       - name: Zip artifact for deployment
