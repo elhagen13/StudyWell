@@ -8,9 +8,9 @@ function Timer(props) {
   const [timerOn, setTimerOn] = useState(false);
   const [timerDone, setTimerDone] = useState(false);
   const timerRef = useRef(null);
-  var audio = new Audio(bluemingsound);
 
   useEffect(() => {
+    var audio = new Audio(bluemingsound);
     if (timerOn) {
       timerRef.current = setInterval(() => {
         if (seconds > 0) {
