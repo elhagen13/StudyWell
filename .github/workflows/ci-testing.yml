@@ -2,8 +2,8 @@ ame: CI Testing
 
 on:
   push:
-    branches: 
-      - '*'
+    branches:
+      - "*"
 
 jobs:
   build:

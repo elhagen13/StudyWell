@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import './checkmark.css'
-  
+import "./checkmark.css";
+
 function TaskBarBody(props) {
   const [completedTasks, setCompletedTasks] = useState([]);
 
@@ -45,7 +45,6 @@ function TaskBarBody(props) {
 function TaskBar(props) {
   return (
     <table>
-      <TaskBarHeader />
       <TaskBarBody tasksData={props.tasksData} removeTask={props.removeTask} />
     </table>
   );

@@ -1,5 +1,4 @@
-import React, {useState} from 'react';
-
+import React, { useState } from "react";
 
 function Task(props) {
   const [task, setTask] = useState({
@@ -20,15 +19,17 @@ function Task(props) {
     <form>
       <input
         type="text"
-        task ="task"
+        task="task"
         value={task.task}
-        onChange={handleChange} />
+        onChange={handleChange}
+      />
       <input
-        type = "button"
-        class = "submit_task"
-        value = "Submit"
-        onClick = {submitTask}/>
-      </form>
-    );
+        type="button"
+        class="submit_task"
+        value="Submit"
+        onClick={submitTask}
+      />
+    </form>
+  );
 }
 export default Task;
