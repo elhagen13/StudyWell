@@ -9,11 +9,31 @@ import StartButton from "./StartButton";
 function App() {
   const [tasks, setTasks] = useState([]);
 
-  function removeTask(index) {
-    const updated = tasks.filter((task, i) => {
-      return i !== index;
+  function deleteUser(id) {
+    const promise = fetch("http://localhost:8000/tasks/${id}", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
-    setTasks(updated);
+
+    return promise;
+  }
+  function removeTask(index) {
+    const taskId = tasks[index].id;
+    deleteUser(taskId)
+      .then((res) => {
+        if (res.status === 204) {
+          const updated = tasks.filter((task, i) => i !== index);
+          setTasks(updated);
+          
+        } else {
+          console.error("Failed to delete task on the backend.");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
   //   ******* Please confirm if this can be deleted or not! *****
 
@@ -60,7 +80,7 @@ function App() {
       .catch((error) => {
         console.log(error);
       });
-  });
+  },[]);
 
   return (
     <div className="App">

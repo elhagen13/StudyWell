@@ -42,7 +42,7 @@ function addTasks(task) {
   return promise;
 }
 
-function findTaskID(id) {
+function findTaskIndex(id) {
   return taskModel.find({ id: id });
 }
 function deleteUser(id) {
@@ -51,6 +51,6 @@ function deleteUser(id) {
 export default {
   getTasks,
   addTasks,
-  findTaskID,
+  findTaskIndex,
   deleteUser,
 };

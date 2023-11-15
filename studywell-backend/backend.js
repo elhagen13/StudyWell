@@ -5,8 +5,8 @@ import taskModel from "./task-functions.js";
 const app = express();
 const port = 8000;
 
-app.use(cors());
 app.use(express.json());
+app.use(cors());
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
@@ -48,7 +48,17 @@ async function deleteUserById(id) {
     return false;
   }
 }
-app.delete("/tasks/:id", (req, res) => {
-  const id = req.params["id"];
-  deleteUserById(id);
+app.delete("/tasks/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const deletedTask = await taskModel.deleteUser(id);
+    if (deletedTask === undefined) {
+      res.status(404).send("Resource not found.");
+    } else {
+      res.status(204).send("Task Deleted.");
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
 });
