@@ -1,17 +1,16 @@
 .break_text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 20px
-    /* border: 3px solid rgb(76, 161, 184); */
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 20px;
+  /* border: 3px solid rgb(76, 161, 184); */
+}
 
 .timer {
   height: 200px;
   width: 200px;
   position: fixed;
-
 }
 
 .closeButton{

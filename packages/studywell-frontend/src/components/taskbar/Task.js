@@ -2,42 +2,33 @@ import React, {useState} from 'react';
 
 
 function Task(props) {
-  
-  const [task, setTask] = useState(
-     {
-        task: "",
-     }
-  );
-  
+  const [task, setTask] = useState({
+    task: "",
+  });
 
   function submitTask() {
     props.handleSubmit(task);
-    setTask({task: ''});
+    setTask({ task: "" });
   }
 
   function handleChange(event) {
-    const {value} = event.target;
-    setTask(
-      {task: value}
-    );
-    
+    const { value } = event.target;
+    setTask({ task: value });
   }
 
   return (
-    <div>
-      <form>
-        <input
-          type="text"
-          task = "task"
-          value={task.task}
-          onChange={handleChange} />
-        <input
-          type = "button"
-          class = "submit_task"
-          value = "Submit"
-          onClick = {submitTask}/>
-        </form>
-      </div>
+    <form>
+      <input
+        type="text"
+        task ="task"
+        value={task.task}
+        onChange={handleChange} />
+      <input
+        type = "button"
+        class = "submit_task"
+        value = "Submit"
+        onClick = {submitTask}/>
+      </form>
     );
 }
 export default Task;

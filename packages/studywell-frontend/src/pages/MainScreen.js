@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Task from '../components/taskbar/Task'
 import TaskBar from '../components/taskbar/TaskBar'
 import Timer from '../components/timer/Timer';
+
 import './Page.css'
 
 const CloseButton = ({ onClose, isVisible}) => {
@@ -25,7 +26,6 @@ const CloseButton = ({ onClose, isVisible}) => {
 };
 
 function MainScreen() {
-
   const [tasks, setTasks] = useState([]);
   const [isVisible, setIsVisible] = useState(true);
 
@@ -33,9 +33,9 @@ function MainScreen() {
   setIsVisible(!isVisible);
   };
 
-  function removeTask(index){
+  function removeTask(index) {
     const updated = tasks.filter((task, i) => {
-      return i !== index
+      return i !== index;
     });
     setTasks(updated);
   }
@@ -43,7 +43,7 @@ function MainScreen() {
   function updateList(task) {
     console.log(task);
     setTasks([...tasks, task]);
-    console.log(tasks)
+    console.log(tasks);
   }
 
   return (
@@ -64,8 +64,7 @@ function MainScreen() {
        
         </div>
     </div>
-      
   );
 }
- 
+
 export default MainScreen;
