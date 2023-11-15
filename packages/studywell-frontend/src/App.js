@@ -9,8 +9,8 @@ import StartButton from "./StartButton";
 function App() {
   const [tasks, setTasks] = useState([]);
 
-  function deleteUser(id) {
-    const promise = fetch("http://localhost:8000/tasks/${id}", {
+  function deleteUser(_id) {
+    const promise = fetch(`http://localhost:8000/tasks/${_id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -20,7 +20,7 @@ function App() {
     return promise;
   }
   function removeTask(index) {
-    const taskId = tasks[index].id;
+    const taskId = tasks[index]._id;
     deleteUser(taskId)
       .then((res) => {
         if (res.status === 204) {

@@ -45,8 +45,15 @@ function addTasks(task) {
 function findTaskIndex(id) {
   return taskModel.find({ id: id });
 }
-function deleteUser(id) {
-  return taskModel.findByIdAndDelete(id);
+async function deleteUser(id) {
+  try{
+    const deletedTask = await taskModel.findByIdAndDelete(id);
+    return deletedTask;
+  }
+  catch (error) {
+    console.error(error);
+    throw error; // Rethrow the error to handle it in the calling function
+  }
 }
 export default {
   getTasks,
