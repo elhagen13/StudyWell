@@ -28,7 +28,7 @@ function Timer(props) {
       }
       else if(seconds === 0 && minutes > 0){
         setMinutes(minutes - 1);
-        setSeconds(3);
+        setSeconds(59);
       }
       else{
         clearInterval(timerRef.current);
