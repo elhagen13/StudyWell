@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Task from "../components/taskbar/Task";
 import TaskBar from "../components/taskbar/TaskBar";
 import Timer from "../components/timer/Timer";
+import ColorBox from "../components/colorbox/ColorBox";
 
 import "./Page.css";
 
@@ -56,6 +57,7 @@ function MainScreen() {
           </div>
         )}
       </div>
+      <ColorBox />
     </div>
   );
 }
