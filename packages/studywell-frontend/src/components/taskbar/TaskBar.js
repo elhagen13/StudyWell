@@ -14,8 +14,7 @@ function TaskBarBody(props) {
 
   const rows = props.tasksData.map((row, index) => {
     const isCompleted = completedTasks[index] || false;
-    const taskClass = isCompleted ? "completed-task" : "";
-
+    //const taskClass = isCompleted ? "completed-task" : "";
     return (
       <tr key={index}>
         <div className="singleTask">
