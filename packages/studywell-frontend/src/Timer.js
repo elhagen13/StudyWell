@@ -12,6 +12,7 @@ function Timer(props) {
   const [timerDone, setTimerDone] = useState(false);
   const timerRef = useRef(null);
   const navigate = useNavigate(); 
+  const [breakCount, setBreakCount] = useState(0);
 
 
   var audio = new Audio(bluemingsound);
@@ -50,10 +51,25 @@ function Timer(props) {
   function endTimer(){
     setTimerDone(true);
     audio.play();
-    navigate("/short");
-
+    setBreakCount(count => count + 1);
+    console.log(breakCount);
+    if (breakCount % 3 === 0){
+      navigate("/long");
+    }
+    else{
+      navigate("/short")
+    }
 
   }
+  function navigateToMain() {
+    navigate("/");
+  }
+
+  useEffect(() => {
+    if (timerDone) {
+      navigateToMain();
+    }
+  }, [timerDone]);
 
   return (
     <div className="container">

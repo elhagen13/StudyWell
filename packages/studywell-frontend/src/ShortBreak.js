@@ -8,7 +8,7 @@ function ShortBreak() {
   return (
     <div>
       <div className="container">
-        <Timer time = {5}/>
+        <Timer time = {1}/>
       </div>
       <div className = "break_text">
         <p>Stretch and grab a snack!</p>

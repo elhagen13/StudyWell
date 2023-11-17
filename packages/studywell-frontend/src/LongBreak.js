@@ -9,7 +9,7 @@ function LongBreak() {
   return (
     <div>
       <div className="container">
-        <Timer time = {15}/>
+        <Timer time = {2}/>
       </div>
       <div className = "break_text">
         <p>Stretch and grab a snack!</p>
