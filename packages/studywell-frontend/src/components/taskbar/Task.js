@@ -16,7 +16,6 @@ function Task(props) {
   }
 
   function handleInputClick(event) {
-    const { value } = event.target;
     setTask({ task: "" });
   }
 
