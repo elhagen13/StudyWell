@@ -2,11 +2,14 @@
 .checkmark_container {
   display: flex;
   align-items: center;
-  position: relative;
-  margin: 0%;
+  position: absolute;
   cursor: pointer;
   font-size: 22px;
   user-select: none;
+  margin: 0%;
+  margin-left: 3%;
+  margin-top: 3%;
+  width: 100%;
 }
 
 /* Hide default checkbox */
@@ -22,7 +25,7 @@
 
 /* Custom checkbox */
 .checkmark {
-  position: absolute;
+  position: relative;
   height: 25px;
   width: 25px;
   background-color: #eee;
