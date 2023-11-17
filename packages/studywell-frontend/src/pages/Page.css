@@ -12,3 +12,44 @@
   width: 200px;
   position: fixed;
 }
+
+.closeButton {
+  height: 30px;
+  width: 200px;
+  font-size: 20px;
+  display: inline-flex;
+  background-color: #2f404b;
+}
+
+.task_bar_on {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20%;
+  height: 100%;
+  z-index: 10;
+}
+
+.task_bar_off {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20%;
+  height: 100%;
+  z-index: 10;
+}
+
+.close_arrow {
+  top: 0;
+  text-align: right;
+}
+
+.task_text {
+  text-align: left;
+  width: 90%;
+}
+
+.tasks {
+  width: 100%;
+  height: 100%;
+}
