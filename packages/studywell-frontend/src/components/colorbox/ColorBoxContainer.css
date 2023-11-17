@@ -1,0 +1,18 @@
+.color-box-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  row-gap: 0px;
+  padding: 5px;
+  width: 70px;
+  height: 70px;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+}
+
+.color-box {
+  width: 20%;
+  height: 20%;
+  cursor: pointer;
+}

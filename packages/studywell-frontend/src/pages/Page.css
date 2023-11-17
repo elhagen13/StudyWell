@@ -18,7 +18,8 @@
   width: 200px;
   font-size: 20px;
   display: inline-flex;
-  background-color: #2f404b;
+  background-color: rgba(0, 0, 0, 0.115);
+  margin-left: 30px;
 }
 
 .task_bar_on {

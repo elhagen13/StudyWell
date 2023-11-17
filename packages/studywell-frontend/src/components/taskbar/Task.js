@@ -2,12 +2,12 @@ import React, { useState } from "react";
 
 function Task(props) {
   const [task, setTask] = useState({
-    task: "",
+    task: "type here...",
   });
 
   function submitTask() {
     props.handleSubmit(task);
-    setTask({ task: "" });
+    setTask({ task: "type here..." });
   }
 
   function handleChange(event) {
@@ -15,20 +15,26 @@ function Task(props) {
     setTask({ task: value });
   }
 
+  function handleInputClick(event) {
+    setTask({ task: "" });
+  }
+
+  const placeholderStyle = {
+    fontStyle: "italic",
+  };
+
   return (
-    <form>
+    <form className="submit_row">
       <input
         type="text"
         task="task"
+        class="task_form"
+        style={task.task === "type here..." ? placeholderStyle : {}}
         value={task.task}
         onChange={handleChange}
+        onClick={handleInputClick}
       />
-      <input
-        type="button"
-        class="submit_task"
-        value="Submit"
-        onClick={submitTask}
-      />
+      <input type="button" class="submit_task" value="+" onClick={submitTask} />
     </form>
   );
 }

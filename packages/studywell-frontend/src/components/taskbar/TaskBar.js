@@ -14,10 +14,11 @@ function TaskBarBody(props) {
 
   const rows = props.tasksData.map((row, index) => {
     const isCompleted = completedTasks[index] || false;
+
     return (
       <tr key={index}>
         <div className="singleTask">
-          <td style={{ width: "15%" }}>
+          <td style={{ width: "10%" }}>
             <div className="checkmark_container">
               <input
                 type="checkbox"
@@ -27,7 +28,7 @@ function TaskBarBody(props) {
               <span className="checkmark"></span>
             </div>
           </td>
-          <td style={{ width: "60%" }}>
+          <td style={{ width: "65%" }}>
             <div className="text">{row.task}</div>
           </td>
           <td style={{ width: "25%" }}>
