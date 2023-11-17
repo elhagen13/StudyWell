@@ -9,8 +9,8 @@ app.use(cors());
 app.use(express.json());
 
 /* eslint-disable-next-line no-undef*/
-app.listen(process.env.PORT || port, () => {  
-  console.log("REST API is listening.");  
+app.listen(process.env.PORT || port, () => {
+  console.log("REST API is listening.");
 });
 
 //generates random ID
