@@ -71,18 +71,6 @@ async function deleteUserById(id) {
     return false;
   }
 }
-<<<<<<< HEAD
-app.delete("/tasks/:id", (req, res) => {
-  const id = req.params["id"];
-  deleteUserById(id);
-  // console.log(result);
-  // if (result === undefined) {
-  //     res.status(404).send('Resource not found.');
-  // }
-  // else {
-  //     res.status(204).send("User Deleted.");
-  // }
-=======
 app.delete("/tasks/:id", async (req, res) => {
   const id = req.params.id;
   try {
