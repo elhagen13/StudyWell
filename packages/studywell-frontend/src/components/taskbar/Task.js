@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import { set } from "mongoose";
 
 function Task(props) {
   const [task, setTask] = useState({
     task: "type here...",
-    pomodoros: '',
+    pomodoros: "",
   });
 
   function submitTask() {
     props.handleSubmit(task);
-    setTask({ ...task, task: "type here...", pomodoros: '' });
+    setTask({ ...task, task: "type here...", pomodoros: "" });
   }
 
   function handleTaskChange(event) {
@@ -18,8 +17,8 @@ function Task(props) {
   }
 
   function handlePomodoroChange(event) {
-    const {value} = event.target;
-    setTask({...task, pomodoros: Number(value) });
+    const { value } = event.target;
+    setTask({ ...task, pomodoros: Number(value) });
   }
 
   function handleInputClick(event) {
@@ -49,11 +48,14 @@ function Task(props) {
           onChange={handlePomodoroChange}
           value={task.pomodoros}
         />
-        <input type="button" class="submit_task" value="+" onClick={submitTask} />
+        <input
+          type="button"
+          class="submit_task"
+          value="+"
+          onClick={submitTask}
+        />
       </form>
     </div>
-
-    
   );
 }
 export default Task;
