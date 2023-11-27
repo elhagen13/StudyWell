@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useRef} from "react";
+import React, {useEffect, useState, useRef, useMemo, useCallback} from "react";
 import StartButton from "./StartButton";
 import bluemingsound from "../../sounds/blueming-alarm.mp3"; // Update the path to your alarm sound file
 import { useNavigate } from "react-router-dom"; // Import useNavigate
@@ -15,7 +15,22 @@ function Timer(props) {
   const [breakCount, setBreakCount] = useState(0);
 
 
-  var audio = new Audio(bluemingsound);
+  const audio = useMemo(() => new Audio(bluemingsound), []); 
+  
+  const endTimer = useCallback(() => {
+  
+    setTimerDone(true);
+    audio.play();
+    setBreakCount(count => count + 1);
+    console.log(breakCount);
+    if (breakCount % 3 === 0){
+      navigate("/long");
+    }
+    else{
+      navigate("/short")
+    }
+
+  },[audio, breakCount, navigate]);
 
   useEffect(()=>{
 
@@ -39,7 +54,7 @@ function Timer(props) {
       }
     }, 1000)}
     return ()=>clearInterval(timerRef.current);
-  }, [timerOn, minutes, seconds]);
+  }, [timerOn, minutes, seconds, audio, endTimer]);
 
   function startTimer() {
     setTimerOn(true);
@@ -48,28 +63,13 @@ function Timer(props) {
     setTimerOn(false);
   }
 
-  function endTimer(){
-    setTimerDone(true);
-    audio.play();
-    setBreakCount(count => count + 1);
-    console.log(breakCount);
-    if (breakCount % 3 === 0){
-      navigate("/long");
-    }
-    else{
-      navigate("/short")
-    }
 
-  }
-  function navigateToMain() {
-    navigate("/");
-  }
 
   useEffect(() => {
     if (timerDone) {
-      navigateToMain();
+      navigate("/");
     }
-  }, [timerDone]);
+  }, [timerDone, navigate]);
 
   return (
     <div className="container">
