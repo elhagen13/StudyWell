@@ -1,5 +1,5 @@
 import "../App.css";
-import "../components/timer/Timer.css";
+import "../Timer.css";
 import React, { useState } from "react";
 import Task from "../components/taskbar/Task";
 import TaskBar from "../components/taskbar/TaskBar";
