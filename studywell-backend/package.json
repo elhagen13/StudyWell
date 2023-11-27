@@ -5,17 +5,26 @@
   "main": "backend.js",
   "type": "module",
   "scripts": {
+<<<<<<< HEAD
     "start": "node backend.js",
     "lint": "npx eslint . && npx prettier --check .",
     "test": "echo \"Error: no test specified\""
+=======
+    "start": " node backend.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+>>>>>>> backend
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
     "cors": "^2.8.5",
     "create-react-app": "^5.0.1",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "mongoose": "^8.0.0"
+=======
+    "create-react-app": "^5.0.1"
+>>>>>>> backend
   }
 }

@@ -2,13 +2,17 @@ import mongoose from "mongoose";
 
 const TaskSchema = new mongoose.Schema(
   {
-    Description: {
+    task: {
       type: String,
       required: true,
       trim: true,
     },
     id: {
+<<<<<<< HEAD
       type: Number,
+=======
+      type: String,
+>>>>>>> backend
       required: true,
       trim: true,
     },
