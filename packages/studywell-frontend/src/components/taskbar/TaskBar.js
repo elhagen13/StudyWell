@@ -3,8 +3,11 @@ import "./checkmark.css";
 import "./task.css";
 function OptionPanel(props){
   const [showOptionPanel, setShowOptionPanel] = useState(false);
+  const [position, setPosition] = useState({x: null, y: null})
 
-  const openOptionPanel = (index) => {
+  const openOptionPanel = (event) => {
+    const {clientX, clientY} = event
+    setPosition({x: clientX, y: clientY})
     setShowOptionPanel(true);
   };
 
@@ -12,24 +15,25 @@ function OptionPanel(props){
     setShowOptionPanel(false);
   };
   
-  
   return(
     <div onClick={openOptionPanel}>
       ...
       {showOptionPanel &&
-        <table className = "optionPanel" onMouseLeave={closeOptionPanel}> 
-          <tr
-              onClick={() => props.removeTask(props.index)}
-            >
-              Delete
+        <table className = "optionPanel" onMouseLeave={closeOptionPanel}
+          style = {{top: position.y, left: position.x}}
+        > 
+          <tr className = "optionRow" onClick={() => props.removeTask(props.index)}>
+              <td className = "optionColumn">Delete</td>
           </tr>
-          <tr>Add to To Do</tr>
+          <tr className = "optionRow">
+            <td className = "optionColumn">Add to To Do</td>
+          </tr>
         </table>
       }
     </div>
   )
-
 }
+
 function TaskBarBody(props) {
   const [completedTasks, setCompletedTasks] = useState([]);
 
