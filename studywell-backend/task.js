@@ -8,11 +8,7 @@ const TaskSchema = new mongoose.Schema(
       trim: true,
     },
     id: {
-<<<<<<< HEAD
       type: Number,
-=======
-      type: String,
->>>>>>> backend
       required: true,
       trim: true,
     },

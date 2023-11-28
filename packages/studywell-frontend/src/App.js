@@ -6,12 +6,11 @@ import MainScreen from "./pages/MainScreen";
 import Navbar from "./components/navbar/NavBar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import "./Timer.css";
 import React, { useState, useEffect } from "react";
-import Task from "./Task";
-import TaskBar from "./TaskBar";
-import Timer from "./Timer";
-import StartButton from "./StartButton";
+import Task from "./components/taskbar/Task";
+import TaskBar from "./components/taskbar/TaskBar";
+import Timer from "./components/timer/Timer";
+import StartButton from "./components/timer/StartButton";
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -42,13 +41,7 @@ function App() {
         console.log(error);
       });
   }
-  //   ******* Please confirm if this can be deleted or not! *****
 
-  // function updateList(task) {
-  //   console.log(task);
-  //   setTasks([...tasks, task]);
-  //   console.log(tasks)
-  // }
   function postUser(task) {
     console.log(task);
     const promise = fetch("http://localhost:8000/tasks", {
