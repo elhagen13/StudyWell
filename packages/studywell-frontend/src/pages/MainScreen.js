@@ -1,5 +1,5 @@
 import "../App.css";
-import "../components/timer/Timer.css";
+import "../Timer.css";
 import React, { useState, useEffect } from "react";
 import Timer from "../components/timer/Timer";
 import "./Page.css";
@@ -65,7 +65,6 @@ function MainScreen() {
     const promise = fetch("http://localhost:8000/tasks");
     return promise;
   }
-
   useEffect(() => {
     fetchTasks()
       .then((res) => res.json())

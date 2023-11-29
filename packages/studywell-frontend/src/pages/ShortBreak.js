@@ -1,5 +1,5 @@
 import "../App.css";
-import "../components/timer/Timer.css";
+import "../Timer.css";
 import "./Page.css";
 import Timer from "../components/timer/Timer";
 import ColorBox from "../components/colorbox/ColorBox";

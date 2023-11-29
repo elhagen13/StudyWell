@@ -71,7 +71,9 @@ function TaskBarBody(props) {
           <td className="column2">
             <div className="text">{row.task}</div>
           </td>
-          <td className="column3"></td>
+          <td className="column3">
+          <div className="number">{row.pomodoros}</div>
+          </td>
           <td className="column4">
             <div>
               <OptionPanel
