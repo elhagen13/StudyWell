@@ -4,19 +4,22 @@ import taskModel from "./task.js";
 
 // const dotenv = require('dotenv');
 dotenv.config();
-let count = 0;
 
 mongoose.set("debug", true);
 
 mongoose
   .connect(
     "mongodb+srv://" +
+      // eslint-disable-next-line
       process.env.MONGO_USER +
       ":" +
+      // eslint-disable-next-line no-unused-vars
       process.env.MONGO_PWD +
       "@" +
+      // eslint-disable-next-line no-unused-vars
       process.env.MONGO_CLUSTER +
       "/" +
+      // eslint-disable-next-line no-unused-vars
       process.env.MONGO_DB +
       "?retryWrites=true&w=majority",
     {

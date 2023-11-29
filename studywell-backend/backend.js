@@ -21,7 +21,6 @@ app.listen(process.env.PORT || port, () => {
 const generateID = () => {
   const id = Math.floor(100000 + Math.random() * 900000);
   const newID = id.toString();
-  var count = 0;
   return newID;
 };
 
@@ -37,7 +36,7 @@ app.post("/tasks", (req, res) => {
   taskToAdd.id = generateID();
   taskModel
     .addTasks(taskToAdd)
-    .then((result) => {
+    .then(() => {
       res.status(201).send(taskToAdd);
     })
     .catch((error) => {
@@ -46,6 +45,7 @@ app.post("/tasks", (req, res) => {
     });
 });
 
+// eslint-disable-next-line no-unused-vars
 async function deleteUserById(id) {
   try {
     if (await taskModel.deleteUser(id)) return true;
