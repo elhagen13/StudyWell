@@ -1,5 +1,5 @@
 import "./App.css";
-import "./components/timer/Timer.css";
+import "./Timer.css";
 import ShortBreak from "./pages/ShortBreak";
 import LongBreak from "./pages/LongBreak";
 import MainScreen from "./pages/MainScreen";
