@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "start": "cd packages/studywell-frontend && npm start",
-    "build": "cd packages/studywell-frontend && npm build",
+    "build": "cd packages/studywell-frontend && npm run build",
     "test": "echo \"Error: no test specified\"",
     "lint": "n && npx prettier --check .",
     "dev": "nodemon studywell-backend/backend.js"
