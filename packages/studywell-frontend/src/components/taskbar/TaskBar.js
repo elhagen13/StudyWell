@@ -31,6 +31,9 @@ function TaskBarBody(props) {
           <td style={{ width: "65%" }}>
             <div className="text">{row.task}</div>
           </td>
+          <td>
+            <div className="number">{row.pomodoros}</div>
+          </td>
           <td style={{ width: "25%" }}>
             <button
               className="delete_button"
