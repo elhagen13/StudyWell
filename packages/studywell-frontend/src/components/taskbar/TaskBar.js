@@ -72,7 +72,7 @@ function TaskBarBody(props) {
             <div className="text">{row.task}</div>
           </td>
           <td className="column3">
-          <div className="number">{row.pomodoros}</div>
+            <div className="number">{row.pomodoros}</div>
           </td>
           <td className="column4">
             <div>
