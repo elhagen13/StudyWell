@@ -94,7 +94,7 @@ function MainScreen() {
     const promise = fetch("http://localhost:8000/tasks");
     return promise;
   }
-useEffect(() => {
+  useEffect(() => {
     fetchTasks()
       .then((res) => res.json())
       .then((json) => setTasks(json["task_list"]))
@@ -102,7 +102,7 @@ useEffect(() => {
         console.log(error);
       });
   }, []);
-  
+
   return (
     <div id="MainScreen">
       <div className="container">
