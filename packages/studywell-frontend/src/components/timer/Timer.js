@@ -31,6 +31,7 @@ function Timer(props) {
       }, 1000);
     }
     return () => clearInterval(timerRef.current);
+    // eslint-disable-next-line
   }, [timerOn, minutes, seconds]);
 
   function startTimer() {
@@ -59,6 +60,7 @@ function Timer(props) {
     if (timerDone) {
       navigateToMain();
     }
+    // eslint-disable-next-line
   }, [timerDone]);
 
   return (

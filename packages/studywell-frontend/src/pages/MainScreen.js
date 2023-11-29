@@ -7,12 +7,6 @@ import "./Page.css";
 function MainScreen() {
   const [tasks, setTasks] = useState([]);
 
-  // function removeTask(index) {
-  //   const updated = tasks.filter((task, i) => {
-  //     return i !== index;
-  //   });
-  //   setTasks(updated);
-  // }
   function deleteUser(_id) {
     const promise = fetch(`http://localhost:8000/tasks/${_id}`, {
       method: "DELETE",
@@ -23,6 +17,8 @@ function MainScreen() {
 
     return promise;
   }
+
+  // eslint-disable-next-line
   function removeTask(index) {
     const taskId = tasks[index]._id;
     deleteUser(taskId)
@@ -50,7 +46,8 @@ function MainScreen() {
     console.log(promise);
     return promise;
   }
-  
+
+  // eslint-disable-next-line
   function updateList(task) {
     postUser(task)
       .then((res) => {
@@ -68,7 +65,7 @@ function MainScreen() {
     const promise = fetch("http://localhost:8000/tasks");
     return promise;
   }
-  
+
   useEffect(() => {
     fetchTasks()
       .then((res) => res.json())
