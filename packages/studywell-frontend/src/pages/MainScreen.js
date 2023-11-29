@@ -1,8 +1,6 @@
 import "../App.css";
 import "../components/timer/Timer.css";
 import React, { useState, useEffect } from "react";
-import Task from "../components/taskbar/Task";
-import TaskBar from "../components/taskbar/TaskBar";
 import Timer from "../components/timer/Timer";
 import "./Page.css";
 
