@@ -21,7 +21,7 @@ const CloseButton = ({ onClose, isVisible }) => {
   );
 };
 
-function LongBreak() {
+function LongBreak({breakCount, setBreakCount}) {
   const [tasks, setTasks] = useState([]);
   const [isVisible, setIsVisible] = useState(true);
 
@@ -45,7 +45,7 @@ function LongBreak() {
   return (
     <div id="MainScreen">
       <div className="container">
-        <Timer time={3} />
+        <Timer time={3} breakCount={breakCount} setBreakCount={setBreakCount} page={"long"}/>
       </div>
 
       <div className={isVisible ? "task_bar_on" : "task_bar_off"}>

@@ -21,7 +21,7 @@ const CloseButton = ({ onClose, isVisible }) => {
   );
 };
 
-function MainScreen() {
+function MainScreen({breakCount, setBreakCount}) {
   const [tasks, setTasks] = useState([]);
   const [isVisible, setIsVisible] = useState(true);
 
@@ -45,7 +45,7 @@ function MainScreen() {
   return (
     <div id="MainScreen">
       <div className="container">
-        <Timer time={1} />
+        <Timer time={1} breakCount={breakCount} setBreakCount={setBreakCount} page={"main"}/>
       </div>
 
       <div className={isVisible ? "task_bar_on" : "task_bar_off"}>

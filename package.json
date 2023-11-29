@@ -11,7 +11,8 @@
     "start": "cd packages/studywell-frontend && npm start",
     "test": "echo \"Error: no test specified\"",
     "lint": "n && npx prettier --check .",
-    "dev": "nodemon studywell-backend/backend.js"
+    "dev": "nodemon studywell-backend/backend.js",
+    "build": "cd packages/studywell-frontend && npm build"
   },
   "author": "",
   "license": "ISC",

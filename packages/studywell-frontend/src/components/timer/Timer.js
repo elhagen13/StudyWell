@@ -10,27 +10,39 @@ import bluemingsound from "../../sounds/blueming-alarm.mp3"; // Update the path 
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 function Timer(props) {
+
   const [minutes, setMinutes] = useState(props.time);
   const [seconds, setSeconds] = useState(0);
   const [timerOn, setTimerOn] = useState(false);
   const [timerDone, setTimerDone] = useState(false);
   const timerRef = useRef(null);
   const navigate = useNavigate();
-  const [breakCount, setBreakCount] = useState(0);
+  
 
   const audio = useMemo(() => new Audio(bluemingsound), []);
+  const breakCount = props.breakCount;
+  const page = props.page;
 
   const endTimer = useCallback(() => {
     setTimerDone(true);
     audio.play();
-    setBreakCount((count) => count + 1);
-    console.log(breakCount);
-    if (breakCount % 3 === 0) {
-      navigate("/long");
-    } else {
-      navigate("/short");
+    if (page === "main"){
+      props.setBreakCount((count) => count + 1);
+
     }
-  }, [audio, breakCount, navigate]);
+    console.log(breakCount);
+    if(page === "short" || page === "long"){
+      navigate("/")
+    }
+    else{
+      if (breakCount % 3 === 0) {
+        
+        navigate("/long");
+      } else {
+        navigate("/short");
+      }
+    }
+  }, [audio, navigate, breakCount, props, page]);
 
   useEffect(() => {
     if (timerOn) {
