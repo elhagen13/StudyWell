@@ -4,7 +4,6 @@ import "./Page.css";
 import Timer from "../components/timer/Timer";
 import ColorBox from "../components/colorbox/ColorBox";
 
-
 function ShortBreak() {
   return (
     <div>

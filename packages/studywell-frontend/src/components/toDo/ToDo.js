@@ -18,7 +18,7 @@ function ToDoBody(props) {
     return (
       <tr key={index}>
         <div className="single_task_to_do">
-          <td className = "checkbox_column">
+          <td className="checkbox_column">
             <div className="checkmark_container_to_do">
               <input
                 type="checkbox"
@@ -28,10 +28,10 @@ function ToDoBody(props) {
               <span className="checkmark"></span>
             </div>
           </td>
-          <td className = "text_column">
+          <td className="text_column">
             <div className="text">{row.task}</div>
           </td>
-          <td className = "delete_column">
+          <td className="delete_column">
             <button
               className="delete_button"
               onClick={() => props.removeTask(index)}

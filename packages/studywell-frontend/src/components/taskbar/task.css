@@ -47,10 +47,10 @@
   border: none;
 }
 
-.textOptionPanel{
+.textOptionPanel {
   font-weight: bolder;
 }
-.optionPanel{
+.optionPanel {
   position: absolute;
   transform: translate(-15%, -15%);
   background-color: white;
@@ -61,25 +61,24 @@
   border-collapse: collapse;
 }
 
-.optionColumn{
+.optionColumn {
   padding: 5px 10px 5px 10px;
 }
 
-.optionRow{
+.optionRow {
   border-bottom: 1px solid rgb(237, 237, 237);
 }
 
-.column1{
+.column1 {
   width: 30px;
 }
 
-.column2{
+.column2 {
   width: 200px;
   padding-left: 7px;
 }
 
-.column4{
+.column4 {
   width: 50px;
   padding-left: 5px;
 }
-

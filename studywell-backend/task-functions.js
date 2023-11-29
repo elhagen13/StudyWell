@@ -22,7 +22,7 @@ mongoose
     {
       useNewUrlParser: true, //useFindAndModify: false,
       useUnifiedTopology: true,
-    }
+    },
   )
   .catch((error) => console.log(error));
 
@@ -45,11 +45,10 @@ function findTaskIndex(id) {
   return taskModel.find({ id: id });
 }
 async function deleteUser(id) {
-  try{
+  try {
     const deletedTask = await taskModel.findByIdAndDelete(id);
     return deletedTask;
-  }
-  catch (error) {
+  } catch (error) {
     console.error(error);
     throw error; // Rethrow the error to handle it in the calling function
   }

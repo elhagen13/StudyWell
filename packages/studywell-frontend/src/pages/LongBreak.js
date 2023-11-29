@@ -5,7 +5,6 @@ import Timer from "../components/timer/Timer";
 import "./Page.css";
 import ColorBox from "../components/colorbox/ColorBox";
 
-
 function LongBreak() {
   return (
     <div>

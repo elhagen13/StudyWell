@@ -32,7 +32,7 @@
 }
 
 /* Set blue background when checked */
-.checkmark_container_to_do input:checked ~ .checkmark{
+.checkmark_container_to_do input:checked ~ .checkmark {
   background-color: #39a25c;
 }
 

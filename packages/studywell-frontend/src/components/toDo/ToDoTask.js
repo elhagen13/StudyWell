@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./toDo.css";
 
-
 function ToDoTask(props) {
   const [task, setTask] = useState({
     task: "type here...",
