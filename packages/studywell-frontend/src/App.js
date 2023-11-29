@@ -7,6 +7,12 @@ import Navbar from "./components/navbar/NavBar";
 import TotalTask from "./components/taskbar/TotalTask";
 import ColorBox from "./components/colorbox/ColorBox";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import React, { useState, useEffect } from "react";
+import Task from "./components/taskbar/Task";
+import TaskBar from "./components/taskbar/TaskBar";
+import Timer from "./components/timer/Timer";
+import StartButton from "./components/timer/StartButton";
 import React, {useState} from "react";
 import TotalToDo from "./components/toDo/TotalToDo"
 

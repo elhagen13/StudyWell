@@ -11,16 +11,20 @@ app.use(express.json());
 /* eslint-disable-next-line no-undef*/
 app.listen(process.env.PORT || port, () => {
   console.log("REST API is listening.");
-});
+})
+
+// app.listen(port, () => {
+//   console.log(`Example app listening at http://localhost:${port}`);
+// });
 
 //generates random ID
 const generateID = () => {
   const id = Math.floor(100000 + Math.random() * 900000);
   const newID = id.toString();
+  var count = 0;
   return newID;
 };
 
-/* eslint-disable no-unused-vars */
 app.get("/tasks", (req, res) => {
   taskModel.getTasks(req.description).then((result) => {
     res.send({ task_list: result });
@@ -29,10 +33,11 @@ app.get("/tasks", (req, res) => {
 
 app.post("/tasks", (req, res) => {
   const taskToAdd = req.body;
+  console.log(taskToAdd);
   taskToAdd.id = generateID();
   taskModel
     .addTasks(taskToAdd)
-    .then((res) => {
+    .then((result) => {
       res.status(201).send(taskToAdd);
     })
     .catch((error) => {
@@ -40,6 +45,7 @@ app.post("/tasks", (req, res) => {
       res.status(500).send(error);
     });
 });
+
 async function deleteUserById(id) {
   try {
     if (await taskModel.deleteUser(id)) return true;
@@ -48,14 +54,18 @@ async function deleteUserById(id) {
     return false;
   }
 }
-app.delete("/tasks/:id", (req, res) => {
-  const id = req.params["id"];
-  deleteUserById(id);
-  // console.log(result);
-  // if (result === undefined) {
-  //     res.status(404).send('Resource not found.');
-  // }
-  // else {
-  //     res.status(204).send("User Deleted.");
-  // }
+app.delete("/tasks/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const deletedTask = await taskModel.deleteUser(id);
+    if (deletedTask === undefined) {
+      res.status(404).send("Resource not found.");
+    } else {
+      res.status(204).send("Task Deleted.");
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
 });
+
