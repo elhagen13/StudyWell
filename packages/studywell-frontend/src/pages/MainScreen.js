@@ -50,11 +50,7 @@ function MainScreen() {
     console.log(promise);
     return promise;
   }
-  // function updateList(task) {
-  //   console.log(task);
-  //   setTasks([...tasks, task]);
-  //   console.log(tasks);
-  // }
+  
   function updateList(task) {
     postUser(task)
       .then((res) => {
@@ -72,6 +68,7 @@ function MainScreen() {
     const promise = fetch("http://localhost:8000/tasks");
     return promise;
   }
+  
   useEffect(() => {
     fetchTasks()
       .then((res) => res.json())
