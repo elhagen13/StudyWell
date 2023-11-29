@@ -1,6 +1,6 @@
 import ToDoTask from "./ToDoTask";
 import ToDo from "./ToDo";
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./toDo.css";
 
 const CloseButton = ({ onClose, isVisible }) => {
@@ -15,7 +15,7 @@ const CloseButton = ({ onClose, isVisible }) => {
     );
   };
 
-function TotalToDo() {
+function TotalToDo(props) {
     const [tasks, setTasks] = useState([]);
     const [isVisible, setIsVisible] = useState(true);
   
@@ -30,11 +30,15 @@ function TotalToDo() {
       setTasks(updated);
     }
   
-    function updateList(task) {
-      console.log(task);
-      setTasks([...tasks, task]);
-      console.log(tasks);
-    }
+    const updateList = useCallback((task) => {
+      setTasks((prevTasks) => [...prevTasks, task]);
+    }, []);
+    
+    useEffect(() => {
+      if (props.sentTask) {
+        updateList(props.sentTask);
+      }
+    }, [props.sentTask, updateList]);
   
     return (
         <div>

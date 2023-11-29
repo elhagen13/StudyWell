@@ -15,7 +15,8 @@ const CloseButton = ({ onClose, isVisible }) => {
     );
   };
 
-function TotalTask() {
+function TotalTask(props) {
+
     const [tasks, setTasks] = useState([]);
     const [isVisible, setIsVisible] = useState(true);
   
@@ -31,17 +32,15 @@ function TotalTask() {
     }
   
     function updateList(task) {
-      console.log(task);
       setTasks([...tasks, task]);
-      console.log(tasks);
     }
-  
+
     return (
         <div className={isVisible ? "task_bar_on" : "task_bar_off"}>
           <CloseButton onClose={toggleParentComponent} isVisible={isVisible} />
           {isVisible && (
             <div className="tasks">
-              <TaskBar tasksData={tasks} removeTask={removeTask} />
+              <TaskBar tasksData={tasks} removeTask={removeTask} updateToDo={props.updateToDo}/>
               <Task handleSubmit={updateList} />
             </div>
           )}
