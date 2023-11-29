@@ -29,19 +29,80 @@ function MainScreen() {
     setIsVisible(!isVisible);
   };
 
-  function removeTask(index) {
-    const updated = tasks.filter((task, i) => {
-      return i !== index;
+  // function removeTask(index) {
+  //   const updated = tasks.filter((task, i) => {
+  //     return i !== index;
+  //   });
+  //   setTasks(updated);
+  // }
+  function deleteUser(_id) {
+    const promise = fetch(`http://localhost:8000/tasks/${_id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
-    setTasks(updated);
-  }
 
-  function updateList(task) {
+    return promise;
+  }
+  function removeTask(index) {
+    const taskId = tasks[index]._id;
+    deleteUser(taskId)
+      .then((res) => {
+        if (res.status === 204) {
+          const updated = tasks.filter((task, i) => i !== index);
+          setTasks(updated);
+        } else {
+          console.error("Failed to delete task on the backend.");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+  function postUser(task) {
     console.log(task);
-    setTasks([...tasks, task]);
-    console.log(tasks);
+    const promise = fetch("http://localhost:8000/tasks", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(task),
+    });
+    console.log(promise);
+    return promise;
   }
-
+  // function updateList(task) {
+  //   console.log(task);
+  //   setTasks([...tasks, task]);
+  //   console.log(tasks);
+  // }
+  function updateList(task) {
+    postUser(task)
+      .then((res) => {
+        console.log(res);
+        return res.status === 200 ? res.json() : undefined;
+      })
+      .then((json) => {
+        if (json) setTasks([...tasks, json]);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+  function fetchTasks() {
+    const promise = fetch("http://localhost:8000/tasks");
+    return promise;
+  }
+useEffect(() => {
+    fetchTasks()
+      .then((res) => res.json())
+      .then((json) => setTasks(json["task_list"]))
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+  
   return (
     <div id="MainScreen">
       <div className="container">
