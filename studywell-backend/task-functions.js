@@ -13,13 +13,13 @@ mongoose
       // eslint-disable-next-line
       process.env.MONGO_USER +
       ":" +
-      // eslint-disable-next-line no-unused-vars
+      // eslint-disable-next-line
       process.env.MONGO_PWD +
       "@" +
-      // eslint-disable-next-line no-unused-vars
+      // eslint-disable-next-line
       process.env.MONGO_CLUSTER +
       "/" +
-      // eslint-disable-next-line no-unused-vars
+      // eslint-disable-next-line
       process.env.MONGO_DB +
       "?retryWrites=true&w=majority",
     {
