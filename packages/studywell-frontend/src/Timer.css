@@ -8,16 +8,16 @@
 
 .button {
   background-color: #1b741e; /* Green */
-  border: 10px;
+  border: 10%;
   border-color: #1b811e;
-  border-radius: 15%;
+  border-radius: 20px;
   color: white;
   padding: 15px 32px;
   text-align: center;
   text-decoration: solid;
   display: inline-block;
   font-size: 32px;
-  font-family: "Courier New", Courier, monospace;
+  /*font-family: "Courier New", Courier, monospace;*/
   font-weight: bold;
 }
 
@@ -25,13 +25,13 @@
   background-color: #9f2727; /* Green */
   border: 10px;
   border-color: #1b811e;
-  border-radius: 15%;
+  border-radius: 20px;
   color: white;
   padding: 15px 32px;
   text-align: center;
   text-decoration: solid;
   display: inline-block;
   font-size: 32px;
-  font-family: "Courier New", Courier, monospace;
+  /*font-family: "Courier New", Courier, monospace;*/
   font-weight: bold;
 }

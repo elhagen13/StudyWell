@@ -4,25 +4,28 @@ import taskModel from "./task.js";
 
 // const dotenv = require('dotenv');
 dotenv.config();
-let count = 0;
 
 mongoose.set("debug", true);
 
 mongoose
   .connect(
     "mongodb+srv://" +
+      // eslint-disable-next-line
       process.env.MONGO_USER +
       ":" +
+      // eslint-disable-next-line
       process.env.MONGO_PWD +
       "@" +
+      // eslint-disable-next-line
       process.env.MONGO_CLUSTER +
       "/" +
+      // eslint-disable-next-line
       process.env.MONGO_DB +
       "?retryWrites=true&w=majority",
     {
       useNewUrlParser: true, //useFindAndModify: false,
       useUnifiedTopology: true,
-    }
+    },
   )
   .catch((error) => console.log(error));
 
@@ -45,11 +48,10 @@ function findTaskIndex(id) {
   return taskModel.find({ id: id });
 }
 async function deleteUser(id) {
-  try{
+  try {
     const deletedTask = await taskModel.findByIdAndDelete(id);
     return deletedTask;
-  }
-  catch (error) {
+  } catch (error) {
     console.error(error);
     throw error; // Rethrow the error to handle it in the calling function
   }

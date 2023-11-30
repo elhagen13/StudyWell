@@ -12,7 +12,9 @@ const ColorBox = ({ color, onClick }) => {
 };
 
 const ColorBoxContainer = () => {
-  const [backgroundColor, setBackgroundColor] = useState("#374954"); // Initial background color
+  const [backgroundColor, setBackgroundColor] = useState(
+    document.body.style.backgroundColor,
+  ); // Initial background color
 
   const colors = [
     "#374954",

@@ -4,6 +4,7 @@ import React from "react";
 import Timer from "../components/timer/Timer";
 import Navbar from "../components/navbar/NavBar"
 import "./Page.css";
+import ColorBox from "../components/colorbox/ColorBox";
 
 function LongBreak() {
   return (
@@ -15,6 +16,7 @@ function LongBreak() {
       <div className="break_text">
         <p>Stretch and grab a snack!</p>
       </div>
+      <ColorBox />
     </div>
   );
 }
