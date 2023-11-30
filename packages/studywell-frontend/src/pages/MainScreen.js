@@ -5,6 +5,7 @@ import Task from "../components/taskbar/Task";
 import TaskBar from "../components/taskbar/TaskBar";
 import Timer from "../components/timer/Timer";
 import ColorBox from "../components/colorbox/ColorBox";
+import Navbar from "../components/navbar/NavBar"
 
 import "./Page.css";
 
@@ -105,6 +106,7 @@ function MainScreen() {
 
   return (
     <div id="MainScreen">
+      <Navbar />
       <div className="container">
         <Timer time={1} />
       </div>

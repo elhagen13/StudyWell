@@ -4,6 +4,7 @@ import ShortBreak from "./pages/ShortBreak";
 import LongBreak from "./pages/LongBreak";
 import MainScreen from "./pages/MainScreen";
 import Navbar from "./components/navbar/NavBar";
+import LogIn from "./pages/LogIn"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import React, { useState, useEffect } from "react";
@@ -17,11 +18,11 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navbar />
       <Routes>
         <Route path="/" element={<MainScreen />} />
         <Route path="/short" element={<ShortBreak />} />
         <Route path="/long" element={<LongBreak />} />
+        <Route path ="/login" element = {<LogIn />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,11 +1,13 @@
 import "../App.css";
 import "../Timer.css";
 import "./Page.css";
+import Navbar from "../components/navbar/NavBar"
 import Timer from "../components/timer/Timer";
 
 function ShortBreak() {
   return (
     <div>
+      <Navbar />
       <div className="container">
         <Timer time={5} />
       </div>
