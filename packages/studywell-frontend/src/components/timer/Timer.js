@@ -39,7 +39,6 @@ function Timer(props) {
     }
   }, [audio, navigate, breakCount, props, page]);
 
-
   useEffect(() => {
     if (timerOn) {
       timerRef.current = setInterval(() => {
@@ -91,7 +90,6 @@ function Timer(props) {
           />
         </div>
       )}
-
     </div>
   );
 }

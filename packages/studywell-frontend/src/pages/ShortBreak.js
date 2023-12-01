@@ -13,7 +13,6 @@ const CloseButton = ({ onClose, isVisible }) => {
     onClose();
   };
 
-
   return (
     <button className="closeButton" onClick={handleClick}>
       <div className="task_text">Tasks</div>
