@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Timer from "../components/timer/Timer";
 import "./Page.css";
 
-function MainScreen() {
+function MainScreen({ breakCount, setBreakCount }) {
   const [tasks, setTasks] = useState([]);
 
   function deleteUser(_id) {
@@ -77,7 +77,12 @@ function MainScreen() {
   return (
     <div id="MainScreen">
       <div className="container">
-        <Timer time={1} />
+        <Timer
+          time={1}
+          breakCount={breakCount}
+          setBreakCount={setBreakCount}
+          page={"main"}
+        />
       </div>
     </div>
   );
