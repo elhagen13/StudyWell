@@ -39,7 +39,7 @@ function Timer(props) {
     }
   }, [audio, navigate, breakCount, props, page]);
 
-  useEffect(() => {
+
   useEffect(() => {
     if (timerOn) {
       timerRef.current = setInterval(() => {
@@ -91,24 +91,7 @@ function Timer(props) {
           />
         </div>
       )}
-    </div>
-      {timerDone ? (
-        <div className="timer-container">
-          <h1>Finished</h1>
-        </div>
-      ) : (
-        <div className="timer-container">
-          <h1>
-            {minutes < 10 ? "0" + minutes : minutes}:
-            {seconds < 10 ? "0" + seconds : seconds}
-          </h1>
-          <StartButton
-            timerOn={timerOn}
-            startTimer={startTimer}
-            pauseTimer={pauseTimer}
-          />
-        </div>
-      )}
+
     </div>
   );
 }
