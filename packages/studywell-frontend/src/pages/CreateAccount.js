@@ -39,7 +39,7 @@ function CreateAccount() {
                 createUser(user)
                     .then((res) => {
                         if(res.status === 201){
-                            //window.location.href = '/work';
+                            window.location.href = '/work';
                         }
                         else{
                             return "Account creation failed."
