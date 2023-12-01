@@ -27,40 +27,36 @@ mongoose
     },
   )
   .catch((error) => console.log(error));
-  console.log("connected")
-
-
-
+console.log("connected");
 
 function getUsers(description) {
-    let promise;
-    if (description === undefined) {
-      promise = userModel.find();
-    }
-    return promise;
+  let promise;
+  if (description === undefined) {
+    promise = userModel.find();
   }
-function getUserByEmail(email){
-    let promise;
-    if(email !== undefined){
-        promise = userModel.findOne({email});
-    }
-    return promise;
+  return promise;
+}
+function getUserByEmail(email) {
+  let promise;
+  if (email !== undefined) {
+    promise = userModel.findOne({ email });
+  }
+  return promise;
 }
 
-function getUserByUsername(username){
-    let promise;
-    if(username !== undefined){
-        promise = userModel.findOne({username});
-    }
-    return promise;
+function getUserByUsername(username) {
+  let promise;
+  if (username !== undefined) {
+    promise = userModel.findOne({ username });
+  }
+  return promise;
 }
 
 function addUser(user) {
-    const userToAdd = new userModel(user);
-    const promise = userToAdd.save();
-    return promise;
-  }
-  
+  const userToAdd = new userModel(user);
+  const promise = userToAdd.save();
+  return promise;
+}
 
 export default {
   getUserByUsername,

@@ -1,7 +1,7 @@
 import "../App.css";
 import "../Timer.css";
 import "./Page.css";
-import Navbar from "../components/navbar/NavBar"
+import Navbar from "../components/navbar/NavBar";
 import Timer from "../components/timer/Timer";
 import ColorBox from "../components/colorbox/ColorBox";
 

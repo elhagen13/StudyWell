@@ -2,7 +2,7 @@ import "../App.css";
 import "../Timer.css";
 import React from "react";
 import Timer from "../components/timer/Timer";
-import Navbar from "../components/navbar/NavBar"
+import Navbar from "../components/navbar/NavBar";
 import "./Page.css";
 import ColorBox from "../components/colorbox/ColorBox";
 
