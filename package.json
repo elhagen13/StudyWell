@@ -9,11 +9,10 @@
   ],
   "scripts": {
     "start": "cd packages/studywell-frontend && npm start",
-    "build": "cd packages/studywell-frontend && npm run build",
+    "build": "cd packages/studywell-frontend && npm build",
     "test": "echo \"Error: no test specified\"",
     "lint": "n && npx prettier --check .",
-    "dev": "nodemon studywell-backend/backend.js",
-    "build": "cd packages/studywell-frontend && npm build"
+    "dev": "nodemon studywell-backend/backend.js"
   },
   "author": "",
   "license": "ISC",
@@ -26,7 +25,10 @@
     "webpack": "^4.44.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.23.5",
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/preset-env": "^7.23.5",
+    "@babel/preset-react": "^7.23.3",
     "eslint": "^8.54.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.29.0",
