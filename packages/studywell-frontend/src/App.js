@@ -14,26 +14,25 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="/" element={
-          <MainScreen 
-            breakCount={breakCount}
-            setBreakCount={setBreakCount}
-          />}
+        <Route
+          path="/"
+          element={
+            <MainScreen breakCount={breakCount} setBreakCount={setBreakCount} />
+          }
         />
-        <Route path="/short" element={
-          <ShortBreak 
-            breakCount={breakCount}
-            setBreakCount={setBreakCount}
-
-          />}
-        />        
-        <Route path="/long" element={
-          <LongBreak 
-            breakCount={breakCount}
-            setBreakCount={setBreakCount}
-
-          />}
-        />      </Routes>
+        <Route
+          path="/short"
+          element={
+            <ShortBreak breakCount={breakCount} setBreakCount={setBreakCount} />
+          }
+        />
+        <Route
+          path="/long"
+          element={
+            <LongBreak breakCount={breakCount} setBreakCount={setBreakCount} />
+          }
+        />{" "}
+      </Routes>
     </BrowserRouter>
   );
 }

@@ -21,7 +21,7 @@ const CloseButton = ({ onClose, isVisible }) => {
   );
 };
 
-function ShortBreak({breakCount, setBreakCount}) {
+function ShortBreak({ breakCount, setBreakCount }) {
   const [tasks, setTasks] = useState([]);
   const [isVisible, setIsVisible] = useState(true);
 
@@ -45,7 +45,12 @@ function ShortBreak({breakCount, setBreakCount}) {
   return (
     <div id="MainScreen">
       <div className="container">
-        <Timer time={2} breakCount={breakCount} setBreakCount={setBreakCount} page={"short"}/>
+        <Timer
+          time={2}
+          breakCount={breakCount}
+          setBreakCount={setBreakCount}
+          page={"short"}
+        />
       </div>
 
       <div className={isVisible ? "task_bar_on" : "task_bar_off"}>
