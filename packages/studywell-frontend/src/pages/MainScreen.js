@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import Timer from "../components/timer/Timer";
 import ColorBox from "../components/colorbox/ColorBox";
 import Navbar from "../components/navbar/NavBar"
-
 import "./Page.css";
 
 function MainScreen() {

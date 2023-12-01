@@ -47,13 +47,13 @@ function Timer(props) {
     setBreakCount((count) => count + 1);
     console.log(breakCount);
     if (breakCount % 3 === 0) {
-      navigate("/long");
+      navigate("/work/longbreak");
     } else {
-      navigate("/short");
+      navigate("/work/shortbreak");
     }
   }
   function navigateToMain() {
-    navigate("/");
+    navigate("/work");
   }
 
   useEffect(() => {
