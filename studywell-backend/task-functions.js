@@ -10,16 +10,16 @@ mongoose.set("debug", true);
 mongoose
   .connect(
     "mongodb+srv://" +
-      /* eslint-disable-next-line no-undef*/
+      // eslint-disable-next-line
       process.env.MONGO_USER +
       ":" +
-      /* eslint-disable-next-line no-undef*/
+      // eslint-disable-next-line
       process.env.MONGO_PWD +
       "@" +
-      /* eslint-disable-next-line no-undef*/
+      // eslint-disable-next-line
       process.env.MONGO_CLUSTER +
       "/" +
-      /* eslint-disable-next-line no-undef*/
+      // eslint-disable-next-line
       process.env.MONGO_DB +
       "?retryWrites=true&w=majority",
     {
@@ -34,26 +34,31 @@ function getTasks(description) {
   if (description === undefined) {
     promise = taskModel.find();
   }
-  console.log(promise);
   return promise;
 }
 
 function addTasks(task) {
   const taskToAdd = new taskModel(task);
   const promise = taskToAdd.save();
-  console.log(promise);
+  //console.log(promise);
   return promise;
 }
 
-function findTaskID(id) {
+function findTaskIndex(id) {
   return taskModel.find({ id: id });
 }
-function deleteUser(id) {
-  return taskModel.findByIdAndDelete(id);
+async function deleteUser(id) {
+  try {
+    const deletedTask = await taskModel.findByIdAndDelete(id);
+    return deletedTask;
+  } catch (error) {
+    console.error(error);
+    throw error; // Rethrow the error to handle it in the calling function
+  }
 }
 export default {
   getTasks,
   addTasks,
-  findTaskID,
+  findTaskIndex,
   deleteUser,
 };

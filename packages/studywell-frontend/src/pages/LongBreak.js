@@ -3,10 +3,12 @@ import "../components/timer/Timer.css";
 import React, { useState } from "react";
 import Task from "../components/taskbar/Task";
 import TaskBar from "../components/taskbar/TaskBar";
+import "../Timer.css";
+import React from "react";
 import Timer from "../components/timer/Timer";
 import ColorBox from "../components/colorbox/ColorBox";
-
 import "./Page.css";
+import ColorBox from "../components/colorbox/ColorBox";
 
 const CloseButton = ({ onClose, isVisible }) => {
   const handleClick = () => {
