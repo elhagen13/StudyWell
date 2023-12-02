@@ -8,19 +8,12 @@ import React, { useState } from "react";
 import TotalToDo from "./components/toDo/TotalToDo";
 
 function App() {
-  const [dataFromTask, updateToDoList] = useState("");
-
-  const updateToDo = (task) => {
-    console.log(task);
-    updateToDoList(task);
-  };
-
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<MainScreen />} />
-        <Route path="/short" element={<ShortBreak />} />
-        <Route path="/long" element={<LongBreak />} />
+        <Route path="/work/*" element={<WorkScreen />} />
+        <Route path="/" element={<LogIn />} />
+        <Route path="/create" element={<CreateAccount />} />
       </Routes>
     </BrowserRouter>
   );
