@@ -6,7 +6,7 @@ import ColorBox from "../components/colorbox/ColorBox";
 import Navbar from "../components/navbar/NavBar";
 import "./Page.css";
 
-function MainScreen() {
+function MainScreen({ breakCount, setBreakCount }) {
   const [tasks, setTasks] = useState([]);
 
   function deleteUser(_id) {
@@ -80,7 +80,12 @@ function MainScreen() {
     <div id="MainScreen">
       <Navbar />
       <div className="container">
-        <Timer time={1} />
+        <Timer
+          time={1}
+          breakCount={breakCount}
+          setBreakCount={setBreakCount}
+          page={"main"}
+        />
       </div>
     </div>
   );
