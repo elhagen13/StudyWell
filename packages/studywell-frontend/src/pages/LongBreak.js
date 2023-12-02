@@ -49,20 +49,9 @@ function LongBreak({ breakCount, setBreakCount }) {
           time={3}
           breakCount={breakCount}
           setBreakCount={setBreakCount}
-          page={"long"}
+          page={"longbreak"}
         />
       </div>
-
-      <div className={isVisible ? "task_bar_on" : "task_bar_off"}>
-        <CloseButton onClose={toggleParentComponent} isVisible={isVisible} />
-        {isVisible && (
-          <div className="tasks">
-            <TaskBar tasksData={tasks} removeTask={removeTask} />
-            <Task handleSubmit={updateList} />
-          </div>
-        )}
-      </div>
-      <ColorBox />
     </div>
   );
 }

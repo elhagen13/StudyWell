@@ -4,6 +4,7 @@ import ShortBreak from "./ShortBreak";
 import LongBreak from "./LongBreak";
 import MainScreen from "./MainScreen";
 import TotalTask from "../components/taskbar/TotalTask";
+import Navbar from "../components/navbar/NavBar"
 import ColorBox from "../components/colorbox/ColorBox";
 import { Route, Routes } from "react-router-dom";
 import React, { useState } from "react";
@@ -32,13 +33,13 @@ function WorkScreen() {
           }
         />
         <Route
-          path="shortbreak"
+          path="/shortbreak"
           element={
             <ShortBreak breakCount={breakCount} setBreakCount={setBreakCount} />
           }
         />
         <Route
-          path="longbreak"
+          path="/longbreak"
           element={
             <LongBreak breakCount={breakCount} setBreakCount={setBreakCount} />
           }

@@ -28,13 +28,13 @@ function Timer(props) {
       props.setBreakCount((count) => count + 1);
     }
     console.log(breakCount);
-    if (page === "short" || page === "long") {
+    if (page === "shortbreak" || page === "longbreak") {
       navigate("/");
     } else {
       if (breakCount % 3 === 0) {
-        navigate("/long");
+        navigate("/work/longbreak");
       } else {
-        navigate("/short");
+        navigate("/work/shortbreak");
       }
     }
   }, [audio, navigate, breakCount, props, page]);
@@ -67,7 +67,7 @@ function Timer(props) {
 
   useEffect(() => {
     if (timerDone) {
-      navigate("/");
+      navigate("/work");
     }
   }, [timerDone, navigate]);
 

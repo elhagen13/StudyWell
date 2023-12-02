@@ -2,7 +2,6 @@ import "../App.css";
 import "../Timer.css";
 import React, { useState, useEffect } from "react";
 import Timer from "../components/timer/Timer";
-import ColorBox from "../components/colorbox/ColorBox";
 import Navbar from "../components/navbar/NavBar";
 import "./Page.css";
 
@@ -78,7 +77,6 @@ function MainScreen({ breakCount, setBreakCount }) {
 
   return (
     <div id="MainScreen">
-      <Navbar />
       <div className="container">
         <Timer
           time={1}
