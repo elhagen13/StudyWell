@@ -29,7 +29,7 @@ function Timer(props) {
     }
     console.log(breakCount);
     if (page === "shortbreak" || page === "longbreak") {
-      navigate("/");
+      navigate("/work");
     } else {
       if (breakCount % 3 === 0) {
         navigate("/work/longbreak");

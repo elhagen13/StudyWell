@@ -4,7 +4,7 @@ import ShortBreak from "./ShortBreak";
 import LongBreak from "./LongBreak";
 import MainScreen from "./MainScreen";
 import TotalTask from "../components/taskbar/TotalTask";
-import Navbar from "../components/navbar/NavBar"
+import Navbar from "../components/navbar/NavBar";
 import ColorBox from "../components/colorbox/ColorBox";
 import { Route, Routes } from "react-router-dom";
 import React, { useState } from "react";

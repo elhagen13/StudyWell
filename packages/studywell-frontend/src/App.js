@@ -4,8 +4,7 @@ import WorkScreen from "./pages/WorkScreen";
 import LogIn from "./pages/LogIn";
 import CreateAccount from "./pages/CreateAccount";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import React, { useState } from "react";
-import TotalToDo from "./components/toDo/TotalToDo";
+import React from "react";
 
 function App() {
   return (

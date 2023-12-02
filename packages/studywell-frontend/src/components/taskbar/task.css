@@ -83,7 +83,7 @@
   padding-left: 5px;
 }
 
-.submit_task_todo{
+.submit_task_todo {
   display: inline;
   background-color: #6bbe92;
   border: 0;
@@ -99,7 +99,7 @@
   padding: 5px 10px -10px;
 }
 
-.num_sessions{
+.num_sessions {
   display: block;
   margin-left: 10%;
   margin-top: 10px;
@@ -110,5 +110,5 @@
   height: 20px;
   width: 65%;
   border: none;
-  outline: none
+  outline: none;
 }
