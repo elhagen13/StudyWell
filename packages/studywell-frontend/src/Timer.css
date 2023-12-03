@@ -35,3 +35,6 @@
   /*font-family: "Courier New", Courier, monospace;*/
   font-weight: bold;
 }
+.timer-container h1 {
+  font-family: 'Courier New', Courier, monospace;
+}
