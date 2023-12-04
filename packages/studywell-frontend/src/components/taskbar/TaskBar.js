@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./checkmark.css";
 import "./task.css";
-import tomato from "../../images/tomato.png"
+import tomato from "../../images/tomato.png";
 
 function OptionPanel(props) {
   const [showOptionPanel, setShowOptionPanel] = useState(false);
@@ -75,12 +75,8 @@ function TaskBarBody(props) {
           </td>
           <td className="column3">
             <div className="task">
-              <div className="number">
-                {row.pomodoros} 
-              </div>
-              <img 
-                className="image"
-                src={tomato}/>
+              <div className="number">{row.pomodoros}</div>
+              <img className="image" src={tomato} />
             </div>
           </td>
           <td className="column4">
