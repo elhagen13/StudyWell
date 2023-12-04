@@ -6,17 +6,17 @@ const Navbar = () => {
   return (
     <div className="nav_bar">
       <div>
-        <NavLink to="/" className="title">
+        <NavLink to="/work" className="title">
           Work
         </NavLink>
       </div>
       <div>
-        <NavLink to="/short" className="title">
+        <NavLink to="/work/shortbreak" className="title">
           Short
         </NavLink>
       </div>
       <div>
-        <NavLink to="/long" className="title">
+        <NavLink to="/work/longbreak" className="title">
           Long
         </NavLink>
       </div>

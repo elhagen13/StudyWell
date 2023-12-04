@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import taskModel from "./task-functions.js";
+import userModel from "./user-functions.js";
 
 const app = express();
 const port = 8000;
@@ -9,13 +10,14 @@ app.use(cors());
 app.use(express.json());
 
 /* eslint-disable-next-line no-undef*/
+/*
 app.listen(process.env.PORT || port, () => {
   console.log("REST API is listening.");
-});
+});*/
 
-// app.listen(port, () => {
-//   console.log(`Example app listening at http://localhost:${port}`);
-// });
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
+});
 
 //generates random ID
 const generateID = () => {
@@ -67,4 +69,60 @@ app.delete("/tasks/:id", async (req, res) => {
     console.error(error);
     res.status(500).send("Internal Server Error");
   }
+});
+
+app.get("/users/email/:email", (req, res) => {
+  const email = req.params.email;
+  userModel
+    .getUserByEmail(email)
+    .then((user) => {
+      if (user) {
+        res.status(200).send({ user });
+      } else {
+        res.status(404).send({ message: "User not found" });
+      }
+    })
+    .catch((error) => {
+      res
+        .status(500)
+        .send({ error: "Internal Server Error", details: error.message });
+    });
+});
+
+app.get("/users/username/:username", (req, res) => {
+  const username = req.params.username;
+  console.log(username);
+  userModel
+    .getUserByUsername(username)
+    .then((user) => {
+      if (user) {
+        res.status(200).send({ user });
+      } else {
+        res.status(404).send({ message: "User not found" });
+      }
+    })
+    .catch((error) => {
+      res
+        .status(500)
+        .send({ error: "Internal Server Error", details: error.message });
+    });
+});
+
+app.get("/users", (req, res) => {
+  userModel.getUsers(req.description).then((result) => {
+    res.send({ user_list: result });
+  });
+});
+
+app.post("/users", (req, res) => {
+  const userToAdd = req.body;
+  userModel
+    .addUser(userToAdd)
+    .then(() => {
+      res.status(201).send(userToAdd);
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).send(error);
+    });
 });

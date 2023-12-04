@@ -44,13 +44,14 @@ function Task(props) {
         <input
           type="number"
           // style={task.pomodoros === 0 ? placeholderStyle : {}}
+          class="num_sessions"
           placeholder="# of pomodoros"
           onChange={handlePomodoroChange}
           value={task.pomodoros}
         />
         <input
           type="button"
-          class="submit_task"
+          class="submit_task_todo"
           value="+"
           onClick={submitTask}
         />
