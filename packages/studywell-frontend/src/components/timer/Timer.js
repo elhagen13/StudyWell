@@ -88,6 +88,7 @@ function Timer(props) {
             startTimer={startTimer}
             pauseTimer={pauseTimer}
           />
+          <h2>Pomodoros Completed: {breakCount - 1}</h2>
         </div>
       )}
     </div>
