@@ -2,18 +2,21 @@ import "../App.css";
 import "../Timer.css";
 import "./Page.css";
 import Timer from "../components/timer/Timer";
-import ColorBox from "../components/colorbox/ColorBox";
+import "../Timer.css";
+import "./Page.css";
+import React from "react";
 
-function ShortBreak() {
+function ShortBreak({ breakCount, setBreakCount }) {
   return (
-    <div>
+    <div id="MainScreen">
       <div className="container">
-        <Timer time={5} />
+        <Timer
+          time={2}
+          breakCount={breakCount}
+          setBreakCount={setBreakCount}
+          page={"shortbreak"}
+        />
       </div>
-      <div className="break_text">
-        <p>Stretch and grab a snack!</p>
-      </div>
-      <ColorBox />
     </div>
   );
 }

@@ -1,20 +1,19 @@
 import "../App.css";
-import "../Timer.css";
 import React from "react";
 import Timer from "../components/timer/Timer";
 import "./Page.css";
-import ColorBox from "../components/colorbox/ColorBox";
 
-function LongBreak() {
+function LongBreak({ breakCount, setBreakCount }) {
   return (
-    <div>
+    <div id="MainScreen">
       <div className="container">
-        <Timer time={15} />
+        <Timer
+          time={3}
+          breakCount={breakCount}
+          setBreakCount={setBreakCount}
+          page={"longbreak"}
+        />
       </div>
-      <div className="break_text">
-        <p>Stretch and grab a snack!</p>
-      </div>
-      <ColorBox />
     </div>
   );
 }
