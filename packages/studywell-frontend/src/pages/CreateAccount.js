@@ -50,27 +50,33 @@ function CreateAccount() {
   }
 
   function fetchUserByEmail(email) {
-    const promise = fetch(`http://localhost:8000/users/email/${email}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
+    const promise = fetch(
+      `http://studywell.azurewebsites.net/users/email/${email}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
       },
-    });
+    );
     return promise;
   }
 
   function fetchUserByUsername(username) {
-    const promise = fetch(`http://localhost:8000/users/username/${username}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
+    const promise = fetch(
+      `http://studywell.azurewebsites.net/users/username/${username}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
       },
-    });
+    );
     return promise;
   }
 
   function createUser(user) {
-    const promise = fetch(`http://localhost:8000/users`, {
+    const promise = fetch(`http://studywell.azurewebsites.net/users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
