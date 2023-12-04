@@ -4,11 +4,11 @@ import React, { useState, useEffect } from "react";
 import Timer from "../components/timer/Timer";
 import "./Page.css";
 
-function MainScreen() {
+function MainScreen({ breakCount, setBreakCount }) {
   const [tasks, setTasks] = useState([]);
 
   function deleteUser(_id) {
-    const promise = fetch(`http://localhost:8000/tasks/${_id}`, {
+    const promise = fetch(`http://studywell.azurewebsites.net/tasks/${_id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -36,7 +36,7 @@ function MainScreen() {
   }
   function postUser(task) {
     console.log(task);
-    const promise = fetch("http://localhost:8000/tasks", {
+    const promise = fetch("http://studywell.azurewebsites.net/tasks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -62,7 +62,7 @@ function MainScreen() {
       });
   }
   function fetchTasks() {
-    const promise = fetch("http://localhost:8000/tasks");
+    const promise = fetch("http://studywell.azurewebsites.net/tasks");
     return promise;
   }
   useEffect(() => {
@@ -77,7 +77,12 @@ function MainScreen() {
   return (
     <div id="MainScreen">
       <div className="container">
-        <Timer time={1} />
+        <Timer
+          time={1}
+          breakCount={breakCount}
+          setBreakCount={setBreakCount}
+          page={"main"}
+        />
       </div>
     </div>
   );
