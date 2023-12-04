@@ -33,7 +33,7 @@ function LogIn() {
   }
 
   function fetchUserByEmail(email) {
-    const promise = fetch(`http://localhost:8000/users/email/${email}`, {
+    const promise = fetch(`http://studywell.azurewebsites.net/users/email/${email}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
