@@ -8,7 +8,7 @@ function MainScreen({ breakCount, setBreakCount }) {
   const [tasks, setTasks] = useState([]);
 
   function deleteUser(_id) {
-    const promise = fetch(`http://studywell.azurewebsites.net/tasks/${_id}`, {
+    const promise = fetch(`http://localhost:8000/tasks/${_id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -36,7 +36,7 @@ function MainScreen({ breakCount, setBreakCount }) {
   }
   function postUser(task) {
     console.log(task);
-    const promise = fetch("http://studywell.azurewebsites.net/tasks", {
+    const promise = fetch("http://localhost:8000/tasks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -62,7 +62,7 @@ function MainScreen({ breakCount, setBreakCount }) {
       });
   }
   function fetchTasks() {
-    const promise = fetch("http://studywell.azurewebsites.net/tasks");
+    const promise = fetch("http://localhost:8000/tasks");
     return promise;
   }
   useEffect(() => {
