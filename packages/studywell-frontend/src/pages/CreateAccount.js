@@ -64,7 +64,7 @@ function CreateAccount() {
 
   function fetchUserByUsername(username) {
     const promise = fetch(
-      `http://studywell.azurewebsites.net/users/username/${username}`,
+      `http://localhost:8000/users/username/${username}`,
       {
         method: "GET",
         headers: {
@@ -76,7 +76,7 @@ function CreateAccount() {
   }
 
   function createUser(user) {
-    const promise = fetch(`http://studywell.azurewebsites.net/users`, {
+    const promise = fetch(`http://localhost:8000/users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
