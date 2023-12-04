@@ -4,14 +4,14 @@ import "./toDo.css";
 function ToDoTask(props) {
   const [task, setTask] = useState({
     task: "type here...",
-    pomodoros:"",
+    pomodoros: "",
   });
 
   function submitTask() {
     props.handleSubmit(task);
     setTask({ ...task, task: "type here...", pomodoros: "" });
   }
-  
+
   function handleTaskChange(event) {
     const { value } = event.target;
     setTask({ ...task, task: value });
@@ -32,9 +32,7 @@ function ToDoTask(props) {
 
   return (
     <form className="submit_row_to_do">
-      <div 
-        className="newtask"
-      >
+      <div className="newtask">
         <input
           type="text"
           task="task"
@@ -45,14 +43,18 @@ function ToDoTask(props) {
           onClick={handleInputClick}
         />
         <input
-            type="number"
-            placeholder="# of pomodoros"
-            onChange={handlePomodoroChange}
-            value={task.pomodoros}
+          type="number"
+          placeholder="# of pomodoros"
+          onChange={handlePomodoroChange}
+          value={task.pomodoros}
         />
-        <input type="button" class="submit_task" value="+" onClick={submitTask} />
+        <input
+          type="button"
+          class="submit_task"
+          value="+"
+          onClick={submitTask}
+        />
       </div>
-
     </form>
   );
 }
