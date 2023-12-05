@@ -1,6 +1,6 @@
 import Task from "./Task";
 import TaskBar from "./TaskBar";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../pages/Page.css";
 
 const CloseButton = ({ onClose, isVisible }) => {
@@ -16,7 +16,7 @@ const CloseButton = ({ onClose, isVisible }) => {
 };
 
 function TotalTask(props) {
-  const [tasks, setTasks] = useState([props.tasks]);
+  const [tasks, setTasks] = useState([]);
   const [isVisible, setIsVisible] = useState(true);
 
   const toggleParentComponent = () => {
@@ -28,12 +28,19 @@ function TotalTask(props) {
       return i !== index;
     });
     setTasks(updated);
+    props.removeTask(index);
   }
 
   function updateList(task) {
     setTasks([...tasks, task]);
     props.updateList(task);
   }
+
+  useEffect(() => {
+  if (props.tasks.length !== tasks.length) {
+    setTasks(prevTasks => (props.tasks.length ? [...props.tasks] : prevTasks));
+  }
+}, [props.tasks]);
 
   return (
     <div className={isVisible ? "task_bar_on" : "task_bar_off"}>

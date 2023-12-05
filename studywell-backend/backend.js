@@ -16,7 +16,7 @@ app.listen(process.env.PORT || port, () => {
 });
 
 app.get("/tasks", (req, res) => {
-  taskModel.getTasks(req.description).then((result) => {
+  taskModel.getTasks().then((result) => {
     res.send({ task_list: result });
   });
 });
@@ -47,8 +47,11 @@ async function deleteUserById(id) {
 }
 app.delete("/tasks/:id", async (req, res) => {
   const id = req.params.id;
+  console.log("DELETE request received for task ID:", id);
   try {
     const deletedTask = await taskModel.deleteUser(id);
+    console.log("Deleted task:", deletedTask);
+    
     if (deletedTask === undefined) {
       res.status(404).send("Resource not found.");
     } else {
