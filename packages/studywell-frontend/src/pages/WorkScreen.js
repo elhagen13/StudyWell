@@ -9,17 +9,16 @@ import ColorBox from "../components/colorbox/ColorBox";
 import { Route, Routes } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import TotalToDo from "../components/toDo/TotalToDo";
-import Task from "../components/taskbar/Task";
-import TaskBar from "../components/taskbar/TaskBar";
 
 function WorkScreen() {
   const [dataFromTask, updateToDoList] = useState("");
+  const [breakCount, setBreakCount] = useState(1);
+  const [tasks, setTasks] = useState([]);
+
   const updateToDo = (task) => {
     console.log(task);
     updateToDoList(task);
   };
-  const [breakCount, setBreakCount] = useState(1);
-  const [tasks, setTasks] = useState([]);
 
   function deleteUser(_id) {
     const promise = fetch(`http://localhost:8000/tasks/${_id}`, {
@@ -75,10 +74,12 @@ function WorkScreen() {
         console.log(error);
       });
   }
+
   function fetchTasks() {
     const promise = fetch("http://localhost:8000/tasks");
     return promise;
   }
+
   useEffect(() => {
     fetchTasks()
       .then((res) => res.json())
@@ -87,11 +88,17 @@ function WorkScreen() {
         console.log(error);
       });
   }, []);
+  console.log(tasks);
+
   return (
     <div>
       <Navbar />
       <div>
-        <TotalTask updateToDo={updateList} />
+        <TotalTask
+          updateToDo={updateToDo}
+          updateList={updateList}
+          tasks={tasks}
+        />
       </div>
       <ColorBox />
       <Routes>
@@ -115,10 +122,6 @@ function WorkScreen() {
         />{" "}
       </Routes>
       <TotalToDo sentTask={dataFromTask} />
-      <div className="tasks">
-            <TaskBar tasksData={tasks} removeTask={removeTask} />
-            <Task handleSubmit={updateList} />
-          </div>
     </div>
   );
 }
