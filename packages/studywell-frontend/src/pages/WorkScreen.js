@@ -79,6 +79,7 @@ function WorkScreen() {
     const promise = fetch("http://localhost:8000/tasks");
     return promise;
   }
+  
   useEffect(() => {
     fetchTasks()
       .then((res) => res.json())
@@ -87,6 +88,7 @@ function WorkScreen() {
         console.log(error);
       });
   }, []);
+
   return (
     <div>
       <Navbar />
