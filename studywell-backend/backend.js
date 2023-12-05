@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import taskModel from "./task-functions.js";
 import userModel from "./user-functions.js";
+import generateID from '../packages/studywell-frontend/src/utils.mjs';
 
 const app = express();
 const port = 8000;
@@ -13,13 +14,6 @@ app.use(express.json());
 app.listen(process.env.PORT || port, () => {
   console.log("REST API is listening.");
 });
-
-//generates random ID
-const generateID = () => {
-  const id = Math.floor(100000 + Math.random() * 900000);
-  const newID = id.toString();
-  return newID;
-};
 
 app.get("/tasks", (req, res) => {
   taskModel.getTasks(req.description).then((result) => {

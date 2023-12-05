@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./CreateAccount.css";
+import generateID from '../utils.mjs';
 
 function CreateAccount() {
   const [emailExistence, setEmailExistence] = useState(false);
@@ -13,6 +14,7 @@ function CreateAccount() {
     setEmailExistence(false);
 
     const user = {
+      id: generateID(),
       username: username.value,
       email: email.value,
       password: password.value,
