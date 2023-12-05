@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import taskModel from "./task-functions.js";
 import userModel from "./user-functions.js";
-import generateID from '../packages/studywell-frontend/src/utils.mjs';
+import generateID from "../packages/studywell-frontend/src/utils.mjs";
 
 const app = express();
 const port = 8000;
@@ -10,6 +10,7 @@ const port = 8000;
 app.use(cors());
 app.use(express.json());
 
+console.log(process.env.PORT)
 /* eslint-disable-next-line no-undef*/
 app.listen(process.env.PORT || port, () => {
   console.log("REST API is listening.");

@@ -21,7 +21,7 @@ function WorkScreen() {
   };
 
   function deleteUser(_id) {
-    const promise = fetch(`http://localhost:8000/tasks/${_id}`, {
+    const promise = fetch(`https://studywell.azurewebsites.net/tasks/${_id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -47,10 +47,10 @@ function WorkScreen() {
         console.log(error);
       });
   }
-  
+
   function postUser(task) {
     console.log(task);
-    const promise = fetch("http://localhost:8000/tasks", {
+    const promise = fetch("https://studywell.azurewebsites.net/tasks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -77,7 +77,7 @@ function WorkScreen() {
   }
 
   function fetchTasks() {
-    const promise = fetch("http://localhost:8000/tasks");
+    const promise = fetch("https://studywell.azurewebsites.net/tasks");
     return promise;
   }
 
