@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import taskModel from "./task-functions.js";
 import userModel from "./user-functions.js";
-import generateID from "../../packages/studywell-frontend/src/utils.mjs";
+import generateID from "../packages/studywell-frontend/src/utils.js";
 
 const app = express();
 const port = 8000;
