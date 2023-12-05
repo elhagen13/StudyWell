@@ -90,13 +90,17 @@ function WorkScreen() {
         console.log(error);
       });
   }, []);
-  console.log(tasks)
+  console.log(tasks);
 
   return (
     <div>
       <Navbar />
       <div>
-        <TotalTask updateToDo={updateToDo} updateList={updateList} tasks={tasks}/>
+        <TotalTask
+          updateToDo={updateToDo}
+          updateList={updateList}
+          tasks={tasks}
+        />
       </div>
       <ColorBox />
       <Routes>

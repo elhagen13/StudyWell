@@ -34,8 +34,6 @@ function TotalTask(props) {
     setTasks([...tasks, task]);
     props.updateList(task);
   }
-  
-
 
   return (
     <div className={isVisible ? "task_bar_on" : "task_bar_off"}>
