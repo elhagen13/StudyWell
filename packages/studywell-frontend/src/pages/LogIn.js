@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./LogIn.css";
 
 function LogIn() {
   const [incorrectEmail, setEmail] = useState(false);
   const [incorrectPassword, setPassword] = useState(false);
+  const navigate = useNavigate();
 
   function authenticate() {
-    console.log("clicked!");
     const email = document.getElementById("email");
     const password = document.getElementById("password");
     setEmail(false);
@@ -23,7 +23,7 @@ function LogIn() {
       })
       .then((data) => {
         if (data !== null && data.user.password === password.value) {
-          window.location.href = "/work";
+          navigate("/work");
         } else {
           setPassword(true);
         }

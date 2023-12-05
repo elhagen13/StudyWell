@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import "./CreateAccount.css";
 import generateID from "../utils.js";
+import { useNavigate } from "react-router-dom";
 
 function CreateAccount() {
   const [emailExistence, setEmailExistence] = useState(false);
   const [usernameExistence, setUsernameExistence] = useState(false);
+  const navigate = useNavigate();
+
   function accountCreation() {
     const email = document.getElementById("email");
     const username = document.getElementById("username");
@@ -42,7 +45,7 @@ function CreateAccount() {
         if (!emailExistence && !usernameExistence) {
           createUser(user).then((res) => {
             if (res.status === 201) {
-              window.location.href = "/work";
+              navigate("/work");
             } else {
               return "Account creation failed.";
             }
