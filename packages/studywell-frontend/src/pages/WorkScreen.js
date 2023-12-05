@@ -14,12 +14,13 @@ import TaskBar from "../components/taskbar/TaskBar";
 
 function WorkScreen() {
   const [dataFromTask, updateToDoList] = useState("");
+  const [breakCount, setBreakCount] = useState(1);
+  const [tasks, setTasks] = useState([]);
+
   const updateToDo = (task) => {
     console.log(task);
     updateToDoList(task);
   };
-  const [breakCount, setBreakCount] = useState(1);
-  const [tasks, setTasks] = useState([]);
 
   function deleteUser(_id) {
     const promise = fetch(`http://localhost:8000/tasks/${_id}`, {
@@ -75,6 +76,7 @@ function WorkScreen() {
         console.log(error);
       });
   }
+
   function fetchTasks() {
     const promise = fetch("http://localhost:8000/tasks");
     return promise;
@@ -88,12 +90,13 @@ function WorkScreen() {
         console.log(error);
       });
   }, []);
+  console.log(tasks)
 
   return (
     <div>
       <Navbar />
       <div>
-        <TotalTask updateToDo={updateToDo} updateList={updateList} />
+        <TotalTask updateToDo={updateToDo} updateList={updateList} tasks={tasks}/>
       </div>
       <ColorBox />
       <Routes>
