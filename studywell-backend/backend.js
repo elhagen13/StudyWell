@@ -10,7 +10,6 @@ const port = 8000;
 app.use(cors());
 app.use(express.json());
 
-console.log(process.env.PORT)
 /* eslint-disable-next-line no-undef*/
 app.listen(process.env.PORT || port, () => {
   console.log("REST API is listening.");
