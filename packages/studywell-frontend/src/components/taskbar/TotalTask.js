@@ -32,6 +32,7 @@ function TotalTask(props) {
 
   function updateList(task) {
     setTasks([...tasks, task]);
+    props.updateList(task);
   }
 
   return (

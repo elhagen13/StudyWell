@@ -63,15 +63,12 @@ function CreateAccount() {
   }
 
   function fetchUserByUsername(username) {
-    const promise = fetch(
-      `http://localhost:8000/users/username/${username}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
+    const promise = fetch(`http://localhost:8000/users/username/${username}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
       },
-    );
+    });
     return promise;
   }
 

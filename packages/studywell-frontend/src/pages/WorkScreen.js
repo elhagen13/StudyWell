@@ -79,7 +79,7 @@ function WorkScreen() {
     const promise = fetch("http://localhost:8000/tasks");
     return promise;
   }
-  
+
   useEffect(() => {
     fetchTasks()
       .then((res) => res.json())
@@ -93,7 +93,7 @@ function WorkScreen() {
     <div>
       <Navbar />
       <div>
-        <TotalTask updateToDo={updateList} />
+        <TotalTask updateToDo={updateToDo} updateList={updateList} />
       </div>
       <ColorBox />
       <Routes>
@@ -117,10 +117,6 @@ function WorkScreen() {
         />{" "}
       </Routes>
       <TotalToDo sentTask={dataFromTask} />
-      <div className="tasks">
-            <TaskBar tasksData={tasks} removeTask={removeTask} />
-            <Task handleSubmit={updateList} />
-          </div>
     </div>
   );
 }

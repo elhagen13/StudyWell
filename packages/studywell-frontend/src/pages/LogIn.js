@@ -33,15 +33,12 @@ function LogIn() {
   }
 
   function fetchUserByEmail(email) {
-    const promise = fetch(
-      `http://localhost:8000/users/email/${email}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
+    const promise = fetch(`http://localhost:8000/users/email/${email}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
       },
-    );
+    });
     return promise;
   }
 
