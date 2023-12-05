@@ -2,6 +2,8 @@ import "../App.css";
 import "../Timer.css";
 import React, { useState, useEffect } from "react";
 import Timer from "../components/timer/Timer";
+import Task from "../components/taskbar/Task";
+import TaskBar from "../components/taskbar/TaskBar";
 import "./Page.css";
 
 function MainScreen({ breakCount, setBreakCount }) {
@@ -84,6 +86,11 @@ function MainScreen({ breakCount, setBreakCount }) {
           page={"main"}
         />
       </div>
+      <div className="tasks">
+            <TaskBar tasksData={tasks} removeTask={removeTask} />
+            <Task handleSubmit={updateList} />
+      
+          </div>
     </div>
   );
 }
