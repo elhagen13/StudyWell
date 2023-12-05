@@ -9,8 +9,6 @@ import ColorBox from "../components/colorbox/ColorBox";
 import { Route, Routes } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import TotalToDo from "../components/toDo/TotalToDo";
-import Task from "../components/taskbar/Task";
-import TaskBar from "../components/taskbar/TaskBar";
 
 function WorkScreen() {
   const [dataFromTask, updateToDoList] = useState("");
