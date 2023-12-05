@@ -86,11 +86,10 @@ function MainScreen({ breakCount, setBreakCount }) {
           page={"main"}
         />
       </div>
-      <div className="tasks">
+      {/* <div className="tasks">
             <TaskBar tasksData={tasks} removeTask={removeTask} />
             <Task handleSubmit={updateList} />
-      
-          </div>
+          </div> */}
     </div>
   );
 }
