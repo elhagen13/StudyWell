@@ -16,7 +16,7 @@ const CloseButton = ({ onClose, isVisible }) => {
 };
 
 function TotalTask(props) {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState([props.tasks]);
   const [isVisible, setIsVisible] = useState(true);
 
   const toggleParentComponent = () => {
@@ -32,6 +32,7 @@ function TotalTask(props) {
 
   function updateList(task) {
     setTasks([...tasks, task]);
+    props.updateList(task);
   }
 
   return (
