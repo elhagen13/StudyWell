@@ -92,12 +92,12 @@ function Timer(props) {
           />
           <div className="pomodoros">
             <h2>Pomodoros Completed: {breakCount - 1}</h2>
-            <img className="image" src={tomato} alt="tomato"/>
+            <img className="image" src={tomato} alt="tomato" />
           </div>
         </div>
       )}
     </div>
-  )
+  );
 }
 
 export default Timer;
