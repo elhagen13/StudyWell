@@ -78,10 +78,3 @@
   left: 97%;
   width: 3%;
 }
-
-.pomodoros {
-  display: flex;
-  flex-direction: row;
-  padding-bottom: 1%;
-  align-items: normal;
-}
