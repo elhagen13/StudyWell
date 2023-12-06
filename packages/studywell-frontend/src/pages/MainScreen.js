@@ -9,7 +9,6 @@ function MainScreen({ breakCount, setBreakCount }) {
   document.body.style.backgroundColor = "#374954";
 
 
-
   return (
     <div id="MainScreen">
       <ColorBox />
