@@ -54,6 +54,17 @@
   border: none;
 }
 
+.pomodoro_form_to_do {
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  font-size: 15px;
+  width: 25%;
+  margin-left: 10px;
+  margin-top: 12px;
+  box-shadow: none;
+  outline: none;
+  border: none;}
+
 .text {
   width: 100%;
   text-align: left;
@@ -77,4 +88,11 @@
 .delete_column {
   left: 97%;
   width: 3%;
+}
+
+.pomodoros {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 1%;
+  align-items: normal;
 }

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./LogIn.css";
 
 function LogIn() {
   const [incorrectEmail, setEmail] = useState(false);
   const [incorrectPassword, setPassword] = useState(false);
+  const navigate = useNavigate();
 
   function authenticate() {
     const email = document.getElementById("email");
@@ -22,7 +23,7 @@ function LogIn() {
       })
       .then((data) => {
         if (data !== null && data.user.password === password.value) {
-          window.location.href = "/work";
+          navigate("/work");
         } else {
           setPassword(true);
         }
@@ -34,7 +35,7 @@ function LogIn() {
 
   function fetchUserByEmail(email) {
     const promise = fetch(
-      `http://studywell.azurewebsites.net/users/email/${email}`,
+      `https://studywell.azurewebsites.net/users/email/${email}`,
       {
         method: "GET",
         headers: {

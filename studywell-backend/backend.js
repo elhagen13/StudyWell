@@ -9,22 +9,16 @@ const port = 8000;
 app.use(cors());
 app.use(express.json());
 
-/* eslint-disable-next-line no-undef*/
-/*
-app.listen(process.env.PORT || port, () => {
-  console.log("REST API is listening.");
-});*/
-
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
-});
-
-//generates random ID
 const generateID = () => {
   const id = Math.floor(100000 + Math.random() * 900000);
   const newID = id.toString();
   return newID;
 };
+
+/* eslint-disable-next-line no-undef*/
+app.listen(process.env.PORT || port, () => {
+  console.log("REST API is listening.");
+});
 
 app.get("/tasks", (req, res) => {
   taskModel.getTasks(req.description).then((result) => {
