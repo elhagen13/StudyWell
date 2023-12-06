@@ -83,6 +83,27 @@
   padding-left: 5px;
 }
 
+img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  /* border: 5px solid #555; */
+  background-position: center;
+  padding-bottom: 5px;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.newtask {
+  display: flex;
+  flex-direction: row;
+}
+
+
 .submit_task_todo {
   display: inline;
   background-color: #6bbe92;
