@@ -26,16 +26,30 @@ function ToDoTask(props) {
 
   return (
     <form className="submit_row_to_do">
-      <input
-        type="text"
-        task="task"
-        class="task_form_to_do"
-        style={task.task === "type here..." ? placeholderStyle : {}}
-        value={task.task}
-        onChange={handleChange}
-        onClick={handleInputClick}
-      />
-      <input type="button" class="submit_task" value="+" onClick={submitTask} />
+      <div className="newtask">
+        <input
+          type="text"
+          task="task"
+          class="task_form_to_do"
+          style={task.task === "type here..." ? placeholderStyle : {}}
+          value={task.task}
+          onChange={handleTaskChange}
+          onClick={handleInputClick}
+        />
+        <input
+          type="number"
+          placeholder="# of pomodoros"
+          class="pomodoro_form_to_do"
+          onChange={handlePomodoroChange}
+          value={task.pomodoros}
+        />
+        <input
+          type="button"
+          class="submit_task"
+          value="+"
+          onClick={submitTask}
+        />
+      </div>
     </form>
   );
 }
