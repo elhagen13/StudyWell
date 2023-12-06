@@ -45,6 +45,7 @@ function ToDoTask(props) {
         <input
           type="number"
           placeholder="# of pomodoros"
+          class="pomodoro_form_to_do"
           onChange={handlePomodoroChange}
           value={task.pomodoros}
         />

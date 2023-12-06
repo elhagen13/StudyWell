@@ -40,11 +40,23 @@
   color: white;
   font-size: 15px;
   width: 65%;
-  margin-left: -15%;
+  margin-left: 10%;
   margin-top: 12px;
   box-shadow: none;
   outline: none;
   border: none;
+}
+
+.pomodoro_form {
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  font-size: 15px;
+  width: 85%;
+  margin-left: 10%;
+  margin-top: 12px;
+  box-shadow: 2px;
+  outline: none;
+  border: 2px;
 }
 
 .textOptionPanel {
@@ -101,6 +113,12 @@ img {
 .newtask {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+}
+
+.newtask2 {
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -112,6 +130,7 @@ img {
   margin: 10px;
   margin-right: 20px;
   margin-top: -40px;
+  margin-left: 1000px;
   float: right;
   text-align: center;
   color: #fff;

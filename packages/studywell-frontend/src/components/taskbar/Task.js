@@ -33,21 +33,24 @@ function Task(props) {
     <div>
       <form className="submit_row">
         <div className="newtask">
-          <input
-            type="text"
-            task="task"
-            class="task_form"
-            style={task.task === "type here..." ? placeholderStyle : {}}
-            value={task.task}
-            onChange={handleTaskChange}
-            onClick={handleInputClick}
-          />
-          <input
-            type="number"
-            placeholder="# of pomodoros"
-            onChange={handlePomodoroChange}
-            value={task.pomodoros}
-          />
+          <div className= "newtask2">
+            <input
+              type="text"
+              task="task"
+              class="task_form"
+              style={task.task === "type here..." ? placeholderStyle : {}}
+              value={task.task}
+              onChange={handleTaskChange}
+              onClick={handleInputClick}
+            />
+            <input
+              type="number"
+              placeholder="# of pomodoros"
+              class="pomodoro_form"
+              onChange={handlePomodoroChange}
+              value={task.pomodoros}
+            />
+          </div>
           <input
             type="button"
             class="submit_task"
