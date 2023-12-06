@@ -33,7 +33,7 @@ function Task(props) {
     <div>
       <form className="submit_row">
         <div className="newtask">
-          <div className= "newtask2">
+          <div className="newtask2">
             <input
               type="text"
               task="task"
