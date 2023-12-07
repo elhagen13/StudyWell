@@ -51,7 +51,7 @@ function ToDoTask(props) {
         />
         <input
           type="button"
-          class="submit_task"
+          class="submit_todo"
           value="+"
           onClick={submitTask}
         />

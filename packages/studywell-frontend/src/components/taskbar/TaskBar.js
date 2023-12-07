@@ -76,7 +76,7 @@ function TaskBarBody(props) {
           <td className="column3">
             <div className="task">
               <div className="number">{row.pomodoros}</div>
-              <img className="image" src={tomato} alt="tomato" />
+              <img className="image_tomato" src={tomato} alt="tomato" />
             </div>
           </td>
           <td className="column4">
