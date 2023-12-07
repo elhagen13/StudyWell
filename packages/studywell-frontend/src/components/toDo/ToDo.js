@@ -35,7 +35,7 @@ function ToDoBody(props) {
           <td className="column3">
             <div className="pomodoros">
               <div className="number">{row.pomodoros}</div>
-              <img className="image" src={tomato} />
+              <img className="image" src={tomato} alt="tomato" />
             </div>
           </td>
           <td className="delete_column">

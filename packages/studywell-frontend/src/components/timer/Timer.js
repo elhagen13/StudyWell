@@ -8,6 +8,8 @@ import React, {
 import StartButton from "./StartButton";
 import bluemingsound from "../../sounds/blueming-alarm.mp3"; // Update the path to your alarm sound file
 import { useNavigate } from "react-router-dom"; // Import useNavigate
+import tomato from "../../images/tomato.png";
+import "./Timer.css";
 
 function Timer(props) {
   const [minutes, setMinutes] = useState(props.time);
@@ -88,7 +90,10 @@ function Timer(props) {
             startTimer={startTimer}
             pauseTimer={pauseTimer}
           />
-          <h2>Pomodoros Completed: {breakCount - 1}</h2>
+          <div className="pomodoros">
+            <h2>Pomodoros Completed: {breakCount - 1}</h2>
+            <img className="image" src={tomato} alt="tomato" />
+          </div>
         </div>
       )}
     </div>
