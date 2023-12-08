@@ -37,10 +37,12 @@ function TotalTask(props) {
   }
 
   useEffect(() => {
-  if (props.tasks.length !== tasks.length) {
-    setTasks(prevTasks => (props.tasks.length ? [...props.tasks] : prevTasks));
-  }
-}, [props.tasks]);
+    if (props.tasks.length !== tasks.length) {
+      setTasks((prevTasks) =>
+        props.tasks.length ? [...props.tasks] : prevTasks,
+      );
+    }
+  }, [props.tasks]);
 
   return (
     <div className={isVisible ? "task_bar_on" : "task_bar_off"}>

@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import taskModel from "./task-functions.js";
 import userModel from "./user-functions.js";
-import generateID from '../packages/studywell-frontend/src/utils.mjs';
+import generateID from "../packages/studywell-frontend/src/utils.mjs";
 
 const app = express();
 const port = 8000;
@@ -51,7 +51,7 @@ app.delete("/tasks/:id", async (req, res) => {
   try {
     const deletedTask = await taskModel.deleteUser(id);
     console.log("Deleted task:", deletedTask);
-    
+
     if (deletedTask === undefined) {
       res.status(404).send("Resource not found.");
     } else {

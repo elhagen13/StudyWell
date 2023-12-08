@@ -63,14 +63,14 @@ function WorkScreen() {
 
   // eslint-disable-next-line
   function updateList(task) {
-    console.log('Adding task:', task);
+    console.log("Adding task:", task);
     postUser(task)
       .then((res) => {
-        console.log('Response from server:', res);
+        console.log("Response from server:", res);
         return res.status === 200 ? res.json() : undefined;
       })
       .then((json) => {
-        console.log('JSON response from server:', json);
+        console.log("JSON response from server:", json);
         if (json) setTasks([...tasks, json]);
       })
       .catch((error) => {
@@ -110,7 +110,7 @@ function WorkScreen() {
           tasks={tasks}
         />
       </div>
-      <ColorBox /> 
+      <ColorBox />
       <Routes>
         <Route
           path="/"

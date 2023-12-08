@@ -5,7 +5,6 @@ import Timer from "../components/timer/Timer";
 import "./Page.css";
 
 function MainScreen({ breakCount, setBreakCount }) {
-
   return (
     <div id="MainScreen">
       <div className="container">
