@@ -24,6 +24,7 @@ function LogIn() {
       .then((data) => {
         if (data !== null && data.user.password === password.value) {
           const userId = data.user.id;
+          console.log("true");
           navigate(`/work/${userId}`);
         } else {
           setPassword(true);
