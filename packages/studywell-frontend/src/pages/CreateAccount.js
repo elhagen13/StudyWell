@@ -12,7 +12,7 @@ function CreateAccount() {
     const email = document.getElementById("email");
     const username = document.getElementById("username");
     const password = document.getElementById("password");
-    var existence = [0,0]
+    var existence = [0, 0];
     setUsernameExistence(false);
     setEmailExistence(false);
 
@@ -31,7 +31,7 @@ function CreateAccount() {
         existence[0] = 1;
         console.log("username exists?", usernameExistence);
       }
-  
+
       const emailRes = await fetchUserByEmail(email.value);
       console.log("email", emailRes.status);
       if (emailRes.status === 200) {
@@ -39,9 +39,9 @@ function CreateAccount() {
         setEmailExistence(true);
         console.log("email exists?", emailExistence);
       }
-  
+
       console.log(emailExistence, usernameExistence);
-  
+
       if (!existence[0] && !existence[1]) {
         const res = await createUser(user);
         if (res.status === 201) {
@@ -57,7 +57,6 @@ function CreateAccount() {
       console.error("Error:", error);
     }
   }
-  
 
   function fetchUserByEmail(email) {
     const promise = fetch(
