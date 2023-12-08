@@ -40,11 +40,23 @@
   color: white;
   font-size: 15px;
   width: 65%;
-  margin-left: -15%;
+  margin-left: 10%;
   margin-top: 12px;
   box-shadow: none;
   outline: none;
   border: none;
+}
+
+.pomodoro_form {
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  font-size: 15px;
+  width: 85%;
+  margin-left: 10%;
+  margin-top: 12px;
+  box-shadow: 2px;
+  outline: none;
+  border: 2px;
 }
 
 .textOptionPanel {
@@ -79,8 +91,34 @@
 }
 
 .column4 {
-  width: 50px;
-  padding-left: 5px;
+  width: 40px;
+}
+
+img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  /* border: 5px solid #555; */
+  background-position: center;
+  padding-bottom: 5px;
+  margin-left: 5px;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.newtask {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.newtask2 {
+  display: flex;
+  flex-direction: column;
 }
 
 .submit_task_todo {
@@ -91,6 +129,7 @@
   margin: 10px;
   margin-right: 20px;
   margin-top: -40px;
+  margin-left: 1000px;
   float: right;
   text-align: center;
   color: #fff;
@@ -111,4 +150,8 @@
   width: 65%;
   border: none;
   outline: none;
+}
+
+.number {
+  margin-left: 15px;
 }

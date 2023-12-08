@@ -2,13 +2,18 @@ import express from "express";
 import cors from "cors";
 import taskModel from "./task-functions.js";
 import userModel from "./user-functions.js";
-import generateID from "../packages/studywell-frontend/src/utils.mjs";
 
 const app = express();
 const port = 8000;
 
 app.use(cors());
 app.use(express.json());
+
+const generateID = () => {
+  const id = Math.floor(100000 + Math.random() * 900000);
+  const newID = id.toString();
+  return newID;
+};
 
 /* eslint-disable-next-line no-undef*/
 app.listen(process.env.PORT || port, () => {

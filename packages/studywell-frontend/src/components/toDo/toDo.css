@@ -19,8 +19,8 @@
 .single_task_to_do {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.115);
-  margin: 10px 20px 0px 0px;
   border-radius: 20px;
+  padding-top: 0px;
 }
 
 .table_to_do {
@@ -40,6 +40,8 @@
   background-color: rgba(0, 0, 0, 0.115);
   margin: 10px 20px 0px 0px;
   border-radius: 20px;
+  padding-left: 10px;
+  padding-bottom: 10px;
 }
 
 .task_form_to_do {
@@ -54,13 +56,24 @@
   border: none;
 }
 
+.pomodoro_form_to_do {
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  font-size: 15px;
+  width: 25%;
+  margin-left: 10px;
+  margin-top: 12px;
+  box-shadow: none;
+  outline: none;
+  border: none;
+}
+
 .text {
   width: 100%;
   text-align: left;
   word-wrap: break-word;
   overflow-wrap: break-word;
   word-break: break-word;
-  font-size: 15px;
 }
 
 .checkbox_column {
@@ -70,11 +83,37 @@
 
 .text_column {
   left: 7%;
-  width: 90%;
+  width: 85%;
   padding-right: 2%;
 }
 
 .delete_column {
   left: 97%;
   width: 3%;
+}
+
+.column3 {
+  left: 92%;
+  width: 5%;
+  padding-right: 1%;
+}
+
+.submit_todo {
+  display: inline;
+  background-color: #6bbe92;
+  border: 0;
+  border-radius: 5px;
+  margin: 10px;
+  margin-right: 20px;
+  margin-top: 18px;
+  float: right;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 5px 10px -10px;
+}
+
+.to_do_image {
+  position: relative;
 }

@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import "./CreateAccount.css";
-import generateID from "../utils.mjs";
+import generateID from "../utils.js";
+import { useNavigate } from "react-router-dom";
 
 function CreateAccount() {
   const [emailExistence, setEmailExistence] = useState(false);
   const [usernameExistence, setUsernameExistence] = useState(false);
+  const navigate = useNavigate();
+
   function accountCreation() {
     const email = document.getElementById("email");
     const username = document.getElementById("username");
@@ -42,7 +45,7 @@ function CreateAccount() {
         if (!emailExistence && !usernameExistence) {
           createUser(user).then((res) => {
             if (res.status === 201) {
-              window.location.href = "/work";
+              navigate("/work");
             } else {
               return "Account creation failed.";
             }
@@ -53,7 +56,7 @@ function CreateAccount() {
 
   function fetchUserByEmail(email) {
     const promise = fetch(
-      `http://studywell.azurewebsites.net/users/email/${email}`,
+      `https://studywell.azurewebsites.net/users/email/${email}`,
       {
         method: "GET",
         headers: {
@@ -65,17 +68,20 @@ function CreateAccount() {
   }
 
   function fetchUserByUsername(username) {
-    const promise = fetch(`http://localhost:8000/users/username/${username}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
+    const promise = fetch(
+      `https://studywell.azurewebsites.net/users/username/${username}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
       },
-    });
+    );
     return promise;
   }
 
   function createUser(user) {
-    const promise = fetch(`http://localhost:8000/users`, {
+    const promise = fetch(`https://studywell.azurewebsites.net/users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -109,7 +115,7 @@ function CreateAccount() {
           <label for="password" className="createSmall">
             password
           </label>
-          <input type="text" id="password" className="createField" />
+          <input type="password" id="password" className="createField" />
           <input
             type="button"
             className="create_submit_info"

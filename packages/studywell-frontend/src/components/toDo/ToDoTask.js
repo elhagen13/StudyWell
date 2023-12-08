@@ -4,20 +4,26 @@ import "./toDo.css";
 function ToDoTask(props) {
   const [task, setTask] = useState({
     task: "type here...",
+    pomodoros: "",
   });
 
   function submitTask() {
     props.handleSubmit(task);
-    setTask({ task: "type here..." });
+    setTask({ ...task, task: "type here...", pomodoros: "" });
   }
 
-  function handleChange(event) {
+  function handleTaskChange(event) {
     const { value } = event.target;
-    setTask({ task: value });
+    setTask({ ...task, task: value });
+  }
+
+  function handlePomodoroChange(event) {
+    const { value } = event.target;
+    setTask({ ...task, pomodoros: Number(value) });
   }
 
   function handleInputClick(event) {
-    setTask({ task: "" });
+    setTask({ ...task, task: "" });
   }
 
   const placeholderStyle = {
@@ -26,16 +32,30 @@ function ToDoTask(props) {
 
   return (
     <form className="submit_row_to_do">
-      <input
-        type="text"
-        task="task"
-        class="task_form_to_do"
-        style={task.task === "type here..." ? placeholderStyle : {}}
-        value={task.task}
-        onChange={handleChange}
-        onClick={handleInputClick}
-      />
-      <input type="button" class="submit_task" value="+" onClick={submitTask} />
+      <div className="newtask">
+        <input
+          type="text"
+          task="task"
+          class="task_form_to_do"
+          style={task.task === "type here..." ? placeholderStyle : {}}
+          value={task.task}
+          onChange={handleTaskChange}
+          onClick={handleInputClick}
+        />
+        <input
+          type="number"
+          placeholder="# of pomodoros"
+          class="pomodoro_form_to_do"
+          onChange={handlePomodoroChange}
+          value={task.pomodoros}
+        />
+        <input
+          type="button"
+          class="submit_todo"
+          value="+"
+          onClick={submitTask}
+        />
+      </div>
     </form>
   );
 }

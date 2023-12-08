@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "start": "cd packages/studywell-frontend && npm start",
-    "build": "cd packages/studywell-frontend && npm build",
+    "build": "cd packages/studywell-frontend && npm run build",
     "test": "echo \"Error: no test specified\"",
     "lint": "n && npx prettier --check .",
     "dev": "nodemon studywell-backend/backend.js"
@@ -18,7 +18,9 @@
   "license": "ISC",
   "dependencies": {
     "create-react-app": "^5.0.1",
+    "jest": "^27.5.1",
     "mongoose": "^8.0.0",
+    "prettier": "^3.1.0",
     "react-modal": "^3.16.1",
     "react-router-dom": "^6.18.0",
     "react-scripts": "^5.0.1",
