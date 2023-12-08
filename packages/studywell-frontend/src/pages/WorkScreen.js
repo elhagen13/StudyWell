@@ -175,7 +175,7 @@ function WorkScreen() {
             <LongBreak
               breakCount={breakCount}
               setBreakCount={setBreakCount}
-              longbreak={longBreak}
+              longBreak={longBreak}
             />
           }
         />{" "}

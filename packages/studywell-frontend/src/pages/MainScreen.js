@@ -13,7 +13,6 @@ function MainScreen({ breakCount, setBreakCount, workTime }) {
   useEffect(() => {
     setTimerMinutes(workTime);
   }, [workTime]);
-  console.log(timerMinutes);
 
   return (
     <div id="MainScreen">

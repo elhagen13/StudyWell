@@ -12,6 +12,7 @@ function LongBreak({ breakCount, setBreakCount, longBreak }) {
   useEffect(() => {
     setTimerMinutes(longBreak);
   }, [longBreak]);
+  console.log(timerMinutes);
   return (
     <div id="MainScreen">
       <ColorBox />
