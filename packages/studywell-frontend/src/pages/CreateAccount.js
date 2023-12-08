@@ -28,6 +28,7 @@ function CreateAccount() {
         console.log("username", res.status);
         if (res.status === 200) {
           setUsernameExistence(true);
+          console.log("username exists?", usernameExistence);
         }
         return;
       })
@@ -36,8 +37,8 @@ function CreateAccount() {
           console.log("email", res.status);
           if (res.status === 200) {
             setEmailExistence(true);
-            return;
           }
+          return;
         });
       })
       .then(() => {
