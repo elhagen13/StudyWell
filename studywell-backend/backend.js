@@ -20,25 +20,28 @@ app.listen(process.env.PORT || port, () => {
   console.log("REST API is listening.");
 });
 
-app.get("/tasks", (req, res) => {
-  taskModel.getTasks().then((result) => {
+app.get("/:userId/tasks", (req, res) => {
+  const userId = req.params.userId;
+  taskModel.getTasks(userId).then((result) => {
     res.send({ task_list: result });
   });
 });
 
-app.post("/tasks", (req, res) => {
-  const taskToAdd = req.body;
-  console.log(taskToAdd);
-  taskToAdd.id = generateID();
-  taskModel
-    .addTasks(taskToAdd)
-    .then(() => {
-      res.status(201).send(taskToAdd);
-    })
-    .catch((error) => {
-      console.error(error);
-      res.status(500).send(error);
-    });
+app.post("/:userId/tasks", async (req, res) => {
+  try {
+    const taskToAdd = req.body;
+    taskToAdd.id = generateID();
+    taskToAdd.user_id = req.params.userId;
+
+    await taskModel.addTasks(taskToAdd);
+
+    console.log("Task added successfully to the database:", taskToAdd);
+
+    res.status(201).send(taskToAdd);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send(error);
+  }
 });
 
 // eslint-disable-next-line no-unused-vars

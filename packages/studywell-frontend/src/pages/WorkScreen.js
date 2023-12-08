@@ -6,7 +6,8 @@ import MainScreen from "./MainScreen";
 import TotalTask from "../components/taskbar/TotalTask";
 import Navbar from "../components/navbar/NavBar";
 import { Route, Routes } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
+import { useParams } from "react-router-dom";
 import TotalToDo from "../components/toDo/TotalToDo";
 import Popup from "reactjs-popup";
 
@@ -14,6 +15,7 @@ function WorkScreen() {
   const [dataFromTask, updateToDoList] = useState("");
   const [breakCount, setBreakCount] = useState(1);
   const [tasks, setTasks] = useState([]);
+  const { userId } = useParams();
 
   const [workTime, setWorkTime] = useState(25);
   const [shortBreak, setShortBreak] = useState(5);
@@ -61,23 +63,27 @@ function WorkScreen() {
       });
   }
 
-  function postUser(task) {
-    console.log(task);
-    const promise = fetch("https://studywell.azurewebsites.net/tasks", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+  function postUser(task, userId) {
+    console.log(task, userId);
+    const promise = fetch(
+      `https://studywell.azurewebsites.net/${userId}/tasks`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(task),
       },
-      body: JSON.stringify(task),
-    });
+    );
     console.log(promise);
     return promise;
   }
 
   // eslint-disable-next-line
   function updateList(task) {
+    console.log("userId:", userId);
     console.log("Adding task:", task);
-    postUser(task)
+    postUser(task, userId)
       .then((res) => {
         console.log("Response from server:", res);
         return res.status === 200 ? res.json() : undefined;
@@ -91,10 +97,12 @@ function WorkScreen() {
       });
   }
 
-  function fetchTasks() {
-    const promise = fetch("https://studywell.azurewebsites.net/tasks");
+  const fetchTasks = useCallback(() => {
+    const promise = fetch(
+      `https://studywell.azurewebsites.net/${userId}/tasks`,
+    );
     return promise;
-  }
+  }, [userId]);
 
   useEffect(() => {
     fetchTasks()
@@ -109,7 +117,7 @@ function WorkScreen() {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [fetchTasks]);
 
   return (
     <div>
@@ -145,6 +153,7 @@ function WorkScreen() {
           updateList={updateList}
           removeTask={removeTask}
           tasks={tasks}
+          userId={userId}
         />
       </div>
 

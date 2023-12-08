@@ -23,7 +23,8 @@ function LogIn() {
       })
       .then((data) => {
         if (data !== null && data.user.password === password.value) {
-          navigate("/work");
+          const userId = data.user.id;
+          navigate(`/work/${userId}`);
         } else {
           setPassword(true);
         }
