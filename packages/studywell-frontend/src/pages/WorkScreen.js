@@ -7,12 +7,14 @@ import TotalTask from "../components/taskbar/TotalTask";
 import Navbar from "../components/navbar/NavBar";
 import { Route, Routes } from "react-router-dom";
 import React, { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom';
 import TotalToDo from "../components/toDo/TotalToDo";
 
 function WorkScreen() {
   const [dataFromTask, updateToDoList] = useState("");
   const [breakCount, setBreakCount] = useState(1);
   const [tasks, setTasks] = useState([]);
+  const {userId} = useParams();
 
   const updateToDo = (task) => {
     console.log(task);
@@ -47,9 +49,9 @@ function WorkScreen() {
       });
   }
 
-  function postUser(task) {
+  function postUser(task, userId) {
     console.log(task);
-    const promise = fetch("https://studywell.azurewebsites.net/tasks", {
+    const promise = fetch("https://studywell.azurewebsites.net/tasks/${userId}", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -63,7 +65,7 @@ function WorkScreen() {
   // eslint-disable-next-line
   function updateList(task) {
     console.log("Adding task:", task);
-    postUser(task)
+    postUser(task, userId)
       .then((res) => {
         console.log("Response from server:", res);
         return res.status === 200 ? res.json() : undefined;
@@ -106,6 +108,7 @@ function WorkScreen() {
           updateList={updateList}
           removeTask={removeTask}
           tasks={tasks}
+          userId={userId}
         />
       </div>
       <Routes>
