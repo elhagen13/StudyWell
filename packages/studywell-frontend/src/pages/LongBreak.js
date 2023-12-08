@@ -1,17 +1,24 @@
 import "../App.css";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Timer from "../components/timer/Timer";
 import "./Page.css";
 import ColorBox from "../components/colorbox/ColorBox";
 
-function LongBreak({ breakCount, setBreakCount }) {
+function LongBreak({ breakCount, setBreakCount, longBreak }) {
   document.body.style.backgroundColor = "#0C7C59";
+
+  const [timerMinutes, setTimerMinutes] = useState(longBreak);
+
+  useEffect(() => {
+    setTimerMinutes(longBreak);
+  }, [longBreak]);
+  console.log(timerMinutes);
   return (
     <div id="MainScreen">
       <ColorBox />
       <div className="container">
         <Timer
-          time={3}
+          time={timerMinutes}
           breakCount={breakCount}
           setBreakCount={setBreakCount}
           page={"longbreak"}

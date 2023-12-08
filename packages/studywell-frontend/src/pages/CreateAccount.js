@@ -8,11 +8,11 @@ function CreateAccount() {
   const [usernameExistence, setUsernameExistence] = useState(false);
   const navigate = useNavigate();
 
-  function accountCreation() {
+  async function accountCreation() {
     const email = document.getElementById("email");
     const username = document.getElementById("username");
     const password = document.getElementById("password");
-
+    var existence = [0, 0];
     setUsernameExistence(false);
     setEmailExistence(false);
 

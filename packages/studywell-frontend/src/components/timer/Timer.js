@@ -16,8 +16,10 @@ function Timer(props) {
   const [seconds, setSeconds] = useState(0);
   const [timerOn, setTimerOn] = useState(false);
   const [timerDone, setTimerDone] = useState(false);
+  const [message, setMessage] = useState("");
   const timerRef = useRef(null);
   const navigate = useNavigate();
+  console.log(minutes);
 
   const audio = useMemo(() => new Audio(bluemingsound), []);
   const breakCount = props.breakCount;
@@ -27,6 +29,23 @@ function Timer(props) {
   const pathSegments = curURL.split("/");
   const userId = pathSegments[pathSegments.length - 1];
 
+  useEffect(() => {
+    setMinutes(props.time);
+  }, [props.time]);
+
+  useEffect(() => {
+    updateMessage(page);
+  }, [page]);
+
+  function updateMessage(page) {
+    if (page === "main") {
+      setMessage("Time to study!");
+    } else if (page === "shortbreak") {
+      setMessage("Here's a short break!");
+    } else if (page === "longbreak") {
+      setMessage("Enjoy a long break!");
+    }
+  }
   const endTimer = useCallback(() => {
     setTimerDone(true);
     audio.play();
@@ -94,10 +113,12 @@ function Timer(props) {
             startTimer={startTimer}
             pauseTimer={pauseTimer}
           />
+
           <div className="pomodoros">
             <h2>Pomodoros Completed: {breakCount - 1}</h2>
             <img className="image" src={tomato} alt="tomato" />
           </div>
+          <h3>{message}</h3>
         </div>
       )}
     </div>
