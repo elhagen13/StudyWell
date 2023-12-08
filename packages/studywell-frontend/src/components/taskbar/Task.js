@@ -37,7 +37,7 @@ function Task(props) {
             <input
               type="text"
               task="task"
-              class="task_form"
+              className="task_form"
               style={task.task === "type here..." ? placeholderStyle : {}}
               value={task.task}
               onChange={handleTaskChange}
@@ -46,14 +46,14 @@ function Task(props) {
             <input
               type="number"
               placeholder="# of pomodoros"
-              class="pomodoro_form"
+              className="pomodoro_form"
               onChange={handlePomodoroChange}
               value={task.pomodoros}
             />
           </div>
           <input
             type="button"
-            class="submit_task"
+            className="submit_task"
             value="+"
             onClick={submitTask}
           />

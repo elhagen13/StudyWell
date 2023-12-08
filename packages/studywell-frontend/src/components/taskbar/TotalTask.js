@@ -1,7 +1,7 @@
 import Task from "./Task";
 import TaskBar from "./TaskBar";
 import React, { useState } from "react";
-import "../../pages/Page.css";
+// import "../../pages/Page.css";
 
 const CloseButton = ({ onClose, isVisible }) => {
   const handleClick = () => {
@@ -10,7 +10,8 @@ const CloseButton = ({ onClose, isVisible }) => {
   return (
     <button className="closeButton" onClick={handleClick}>
       <div className="task_text">Tasks</div>
-      <div className="close_arrow">{isVisible ? "▲" : "▼"}</div>
+      <div className="clos
+      e_arrow">{isVisible ? "▲" : "▼"}</div>
     </button>
   );
 };
