@@ -115,7 +115,7 @@ function CreateAccount() {
           <label for="password" className="createSmall">
             password
           </label>
-          <input type="text" id="password" className="createField" />
+          <input type="password" id="password" className="createField" />
           <input
             type="button"
             className="create_submit_info"

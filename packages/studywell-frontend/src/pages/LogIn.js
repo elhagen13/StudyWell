@@ -59,7 +59,7 @@ function LogIn() {
           <label for="password" className="small">
             password
           </label>
-          <input type="text" id="password" className="field" />
+          <input type="password" id="password" className="field" />
           {!incorrectEmail && incorrectPassword && (
             <div className="incorrect">INCORRECT PASSWORD</div>
           )}
