@@ -25,6 +25,10 @@ function Timer(props) {
   const breakCount = props.breakCount;
   const page = props.page;
 
+  const curURL = window.location.href;
+  const pathSegments = curURL.split("/");
+  const userId = pathSegments[pathSegments.length - 1];
+
   useEffect(() => {
     setMinutes(props.time);
   }, [props.time]);
@@ -50,15 +54,15 @@ function Timer(props) {
     }
     console.log(breakCount);
     if (page === "shortbreak" || page === "longbreak") {
-      navigate("/work");
+      navigate(`/work/${userId}`);
     } else {
       if (breakCount % 3 === 0) {
-        navigate("/work/longbreak");
+        navigate(`/work/longbreak/${userId}`);
       } else {
-        navigate("/work/shortbreak");
+        navigate(`/work/shortbreak/${userId}`);
       }
     }
-  }, [audio, navigate, breakCount, props, page]);
+  }, [audio, navigate, breakCount, props, page, userId]);
 
   useEffect(() => {
     if (timerOn) {
@@ -88,9 +92,9 @@ function Timer(props) {
 
   useEffect(() => {
     if (timerDone) {
-      navigate("/work");
+      navigate(`/work/${userId}`);
     }
-  }, [timerDone, navigate]);
+  }, [timerDone, navigate, userId]);
 
   return (
     <div className="container">

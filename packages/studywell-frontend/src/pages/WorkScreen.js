@@ -159,7 +159,7 @@ function WorkScreen() {
 
       <Routes>
         <Route
-          path="/"
+          path="/:userId"
           element={
             <MainScreen
               breakCount={breakCount}
@@ -169,7 +169,7 @@ function WorkScreen() {
           }
         />
         <Route
-          path="/shortbreak"
+          path="/shortbreak/:userId"
           element={
             <ShortBreak
               breakCount={breakCount}
@@ -179,7 +179,7 @@ function WorkScreen() {
           }
         />
         <Route
-          path="/longbreak"
+          path="/longbreak/:userId"
           element={
             <LongBreak
               breakCount={breakCount}

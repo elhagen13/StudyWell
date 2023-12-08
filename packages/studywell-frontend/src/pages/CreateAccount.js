@@ -23,39 +23,48 @@ function CreateAccount() {
       password: password.value,
     };
 
-    try {
-      const usernameRes = await fetchUserByUsername(username.value);
-      console.log("username", usernameRes.status);
-      if (usernameRes.status === 200) {
-        setUsernameExistence(true);
-        existence[0] = 1;
-        console.log("username exists?", usernameExistence);
-      }
-
-      const emailRes = await fetchUserByEmail(email.value);
-      console.log("email", emailRes.status);
-      if (emailRes.status === 200) {
-        existence[1] = 1;
-        setEmailExistence(true);
-        console.log("email exists?", emailExistence);
-      }
-
-      console.log(emailExistence, usernameExistence);
-
-      if (!existence[0] && !existence[1]) {
-        const res = await createUser(user);
-        if (res.status === 201) {
-          navigate("/work");
-          console.log("navigated");
-        } else {
-          console.log("Account creation failed.");
+    fetchUserByUsername(username.value)
+      .then((res) => {
+        console.log("username", res.status);
+        if (res.status === 200) {
+          setUsernameExistence(true);
         }
-      } else {
-        console.log("failed");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
+        return;
+      })
+      .then(() => {
+        fetchUserByEmail(email.value).then((res) => {
+          console.log("email", res.status);
+          if (res.status === 200) {
+            setEmailExistence(true);
+            return;
+          }
+        });
+      })
+      .then(() => {
+        console.log(emailExistence, usernameExistence);
+        if (!emailExistence && !usernameExistence) {
+          createUser(user)
+            .then((res) => {
+              if (res.status === 201) {
+                return res.json();
+              } else {
+                return null;
+              }
+            })
+            .then((data) => {
+              console.log("data", data);
+              if (data !== null) {
+                const userId = data.id;
+                navigate(`/work/${userId}`);
+              } else {
+                console.log("account creation failed");
+              }
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        } else console.log("failed");
+      });
   }
 
   function fetchUserByEmail(email) {
