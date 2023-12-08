@@ -119,19 +119,19 @@ function WorkScreen() {
       </div>
       <Routes>
         <Route
-          path="/"
+          path="/:userId"
           element={
             <MainScreen breakCount={breakCount} setBreakCount={setBreakCount} />
           }
         />
         <Route
-          path="/shortbreak"
+          path="/shortbreak/:userId"
           element={
             <ShortBreak breakCount={breakCount} setBreakCount={setBreakCount} />
           }
         />
         <Route
-          path="/longbreak"
+          path="/longbreak/:userId"
           element={
             <LongBreak breakCount={breakCount} setBreakCount={setBreakCount} />
           }
