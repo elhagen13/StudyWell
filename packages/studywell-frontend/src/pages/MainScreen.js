@@ -1,6 +1,5 @@
 import "../App.css";
 import "../Timer.css";
-import React, { useState, useEffect } from "react";
 import Timer from "../components/timer/Timer";
 import "./Page.css";
 

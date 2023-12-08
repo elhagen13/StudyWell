@@ -96,7 +96,6 @@ function WorkScreen() {
       .catch((error) => {
         console.log(error);
       });
-    console.log(tasks);
   }, []);
 
   return (

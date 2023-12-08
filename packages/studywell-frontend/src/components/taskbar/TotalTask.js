@@ -42,6 +42,7 @@ function TotalTask(props) {
         props.tasks.length ? [...props.tasks] : prevTasks,
       );
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.tasks]);
 
   return (
