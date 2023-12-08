@@ -6,15 +6,15 @@ import MainScreen from "./MainScreen";
 import TotalTask from "../components/taskbar/TotalTask";
 import Navbar from "../components/navbar/NavBar";
 import { Route, Routes } from "react-router-dom";
-import React, { useState, useEffect } from "react";
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect, useCallback } from "react";
+import { useParams } from "react-router-dom";
 import TotalToDo from "../components/toDo/TotalToDo";
 
 function WorkScreen() {
   const [dataFromTask, updateToDoList] = useState("");
   const [breakCount, setBreakCount] = useState(1);
   const [tasks, setTasks] = useState([]);
-  const {userId} = useParams();
+  const { userId } = useParams();
 
   const updateToDo = (task) => {
     console.log(task);
@@ -50,20 +50,24 @@ function WorkScreen() {
   }
 
   function postUser(task, userId) {
-    console.log(task);
-    const promise = fetch("https://studywell.azurewebsites.net/tasks/${userId}", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    console.log(task, userId);
+    const promise = fetch(
+      `https://studywell.azurewebsites.net/${userId}/tasks`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(task),
       },
-      body: JSON.stringify(task),
-    });
+    );
     console.log(promise);
     return promise;
   }
 
   // eslint-disable-next-line
   function updateList(task) {
+    console.log("userId:", userId);
     console.log("Adding task:", task);
     postUser(task, userId)
       .then((res) => {
@@ -79,10 +83,12 @@ function WorkScreen() {
       });
   }
 
-  function fetchTasks() {
-    const promise = fetch("https://studywell.azurewebsites.net/tasks");
+  const fetchTasks = useCallback(() => {
+    const promise = fetch(
+      `https://studywell.azurewebsites.net/${userId}/tasks`,
+    );
     return promise;
-  }
+  }, [userId]);
 
   useEffect(() => {
     fetchTasks()
@@ -97,7 +103,7 @@ function WorkScreen() {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [fetchTasks]);
 
   return (
     <div>

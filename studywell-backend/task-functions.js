@@ -29,10 +29,12 @@ mongoose
   )
   .catch((error) => console.log(error));
 
-function getTasks(description) {
+function getTasks(userId) {
   let promise;
-  if (description === undefined) {
+  if (userId === undefined) {
     promise = taskModel.find();
+  } else {
+    promise = taskModel.find({ user_id: userId });
   }
   return promise;
 }
