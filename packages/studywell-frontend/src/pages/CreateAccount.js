@@ -8,11 +8,11 @@ function CreateAccount() {
   const [usernameExistence, setUsernameExistence] = useState(false);
   const navigate = useNavigate();
 
-  function accountCreation() {
+  async function accountCreation() {
     const email = document.getElementById("email");
     const username = document.getElementById("username");
     const password = document.getElementById("password");
-
+    var existence = [0,0]
     setUsernameExistence(false);
     setEmailExistence(false);
 
@@ -23,37 +23,41 @@ function CreateAccount() {
       password: password.value,
     };
 
-    fetchUserByUsername(username.value)
-      .then((res) => {
-        console.log("username", res.status);
-        if (res.status === 200) {
-          setUsernameExistence(true);
-          console.log("username exists?", usernameExistence);
+    try {
+      const usernameRes = await fetchUserByUsername(username.value);
+      console.log("username", usernameRes.status);
+      if (usernameRes.status === 200) {
+        setUsernameExistence(true);
+        existence[0] = 1;
+        console.log("username exists?", usernameExistence);
+      }
+  
+      const emailRes = await fetchUserByEmail(email.value);
+      console.log("email", emailRes.status);
+      if (emailRes.status === 200) {
+        existence[1] = 1;
+        setEmailExistence(true);
+        console.log("email exists?", emailExistence);
+      }
+  
+      console.log(emailExistence, usernameExistence);
+  
+      if (!existence[0] && !existence[1]) {
+        const res = await createUser(user);
+        if (res.status === 201) {
+          navigate("/work");
+          console.log("navigated");
+        } else {
+          console.log("Account creation failed.");
         }
-        return;
-      })
-      .then(() => {
-        fetchUserByEmail(email.value).then((res) => {
-          console.log("email", res.status);
-          if (res.status === 200) {
-            setEmailExistence(true);
-          }
-          return;
-        });
-      })
-      .then(() => {
-        console.log(emailExistence, usernameExistence);
-        if (!emailExistence && !usernameExistence) {
-          createUser(user).then((res) => {
-            if (res.status === 201) {
-              navigate("/work");
-            } else {
-              return "Account creation failed.";
-            }
-          });
-        } else console.log("failed");
-      });
+      } else {
+        console.log("failed");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   }
+  
 
   function fetchUserByEmail(email) {
     const promise = fetch(
