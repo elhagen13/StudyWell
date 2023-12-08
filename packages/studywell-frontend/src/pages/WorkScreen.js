@@ -7,7 +7,6 @@ import TotalTask from "../components/taskbar/TotalTask";
 import Navbar from "../components/navbar/NavBar";
 import { Route, Routes } from "react-router-dom";
 import React, { useState, useEffect, useCallback } from "react";
-import { useParams } from "react-router-dom";
 import TotalToDo from "../components/toDo/TotalToDo";
 import Popup from "reactjs-popup";
 
@@ -15,11 +14,15 @@ function WorkScreen() {
   const [dataFromTask, updateToDoList] = useState("");
   const [breakCount, setBreakCount] = useState(1);
   const [tasks, setTasks] = useState([]);
-  const { userId } = useParams();
+  //const { userId } = useParams();
 
   const [workTime, setWorkTime] = useState(25);
   const [shortBreak, setShortBreak] = useState(5);
   const [longBreak, setLongBreak] = useState(15);
+
+  const curURL = window.location.href;
+  const pathSegments = curURL.split("/");
+  const userId = pathSegments[pathSegments.length - 1];
 
   const updateTimes = (type, value) => {
     if (type === "work") {
