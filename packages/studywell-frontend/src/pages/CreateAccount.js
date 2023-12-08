@@ -12,7 +12,6 @@ function CreateAccount() {
     const email = document.getElementById("email");
     const username = document.getElementById("username");
     const password = document.getElementById("password");
-    var existence = [0, 0];
     setUsernameExistence(false);
     setEmailExistence(false);
 

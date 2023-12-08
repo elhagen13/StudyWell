@@ -8,11 +8,10 @@ Link to wiki page (last updated 12/6/2023): https://github.com/elhagen13/StudyWe
 
 Development environment set up:
 1). Clone repository from GitHub
-    -CI/CD and Azure testing will be automatically linked to any code you push
+-CI/CD and Azure testing will be automatically linked to any code you push
 2). Download the Prettier extension to format code
-3). Run npm install at the top level of the code 
+3). Run npm install at the top level of the code
 4). Place all node_modules in a .gitignore file
-
 
 Contributing:
 1). All members of the team use the Prettier code formatter extension.
