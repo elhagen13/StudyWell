@@ -76,12 +76,14 @@ function WorkScreen() {
 
   // eslint-disable-next-line
   function updateList(task) {
+    console.log("Adding task:", task);
     postUser(task)
       .then((res) => {
-        console.log(res);
+        console.log("Response from server:", res);
         return res.status === 200 ? res.json() : undefined;
       })
       .then((json) => {
+        console.log("JSON response from server:", json);
         if (json) setTasks([...tasks, json]);
       })
       .catch((error) => {
@@ -97,12 +99,17 @@ function WorkScreen() {
   useEffect(() => {
     fetchTasks()
       .then((res) => res.json())
-      .then((json) => setTasks(json["task_list"]))
+      .then((json) => {
+        console.log("tasks:", json);
+        setTasks((prevTasks) => {
+          console.log("tasks inside useEffect:", prevTasks);
+          return json["task_list"];
+        });
+      })
       .catch((error) => {
         console.log(error);
       });
   }, []);
-  console.log(tasks);
 
   return (
     <div>
@@ -136,6 +143,7 @@ function WorkScreen() {
         <TotalTask
           updateToDo={updateToDo}
           updateList={updateList}
+          removeTask={removeTask}
           tasks={tasks}
         />
       </div>

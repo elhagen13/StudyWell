@@ -28,7 +28,10 @@ function OptionPanel(props) {
         >
           <tr
             className="optionRow"
-            onClick={() => props.removeTask(props.index)}
+            onClick={() => {
+              console.log("Calling removeTask from OptionPanel");
+              props.removeTask(props.index);
+            }}
           >
             <td className="optionColumn">Delete</td>
           </tr>
