@@ -38,3 +38,28 @@
 .timer-container h1 {
   font-family: "Courier New", Courier, monospace;
 }
+
+.pop-button {
+  display: inline;
+  background-color: #6bbe92;
+  border: 0;
+  border-radius: 5px;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  font-size: 12px;
+  width: 10%;
+  position: fixed;
+  top: 0;
+  right: 5px;
+}
+
+.popup {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.115);
+  width: 15%;
+  position: fixed;
+  top: 40px;
+  right: 0;
+  padding-bottom: 20px;
+}
