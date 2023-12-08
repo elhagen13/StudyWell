@@ -18,10 +18,15 @@ function Timer(props) {
   const [timerDone, setTimerDone] = useState(false);
   const timerRef = useRef(null);
   const navigate = useNavigate();
+  console.log(minutes);
 
   const audio = useMemo(() => new Audio(bluemingsound), []);
   const breakCount = props.breakCount;
   const page = props.page;
+
+  useEffect(() => {
+    setMinutes(props.time);
+  }, [props.time]);
 
   const endTimer = useCallback(() => {
     setTimerDone(true);
